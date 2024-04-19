@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.530875a1.css",
+    "main.js": "/static/js/main.4914fd46.js",
+    "static/js/453.1407b060.chunk.js": "/static/js/453.1407b060.chunk.js",
+    "static/media/anarchy_forum.png": "/static/media/anarchy_forum.17a3ebe2ef245ebf623d.png",
+    "static/media/steam_achievement.png": "/static/media/steam_achievement.1512bb00b4a6748d05b4.png",
+    "static/media/chip8_emulator.png": "/static/media/chip8_emulator.b3e4658a6d6f1043fc7d.png",
+    "static/media/steam_logo.png": "/static/media/steam_logo.b7bc82f0d918e1e33eba.png",
+    "static/media/me_photo.jpg": "/static/media/me_photo.213f52c19a947ac2788c.jpg",
+    "index.html": "/index.html",
+    "main.530875a1.css.map": "/static/css/main.530875a1.css.map",
+    "main.4914fd46.js.map": "/static/js/main.4914fd46.js.map",
+    "453.1407b060.chunk.js.map": "/static/js/453.1407b060.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.530875a1.css",
+    "static/js/main.4914fd46.js"
+  ]
+}
