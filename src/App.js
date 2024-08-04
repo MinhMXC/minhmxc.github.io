@@ -10,55 +10,55 @@ import More from "./components/More";
 import Others from "./components/Others";
 
 function App() {
-    const homeRef = useRef(null);
-    const aboutRef = useRef(null);
-    const educationRef = useRef(null);
-    const experienceRef = useRef(null)
-    const projectsRef = useRef(null);
-    const moreRef = useRef(null);
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const educationRef = useRef(null);
+  const experienceRef = useRef(null)
+  const projectsRef = useRef(null);
+  const moreRef = useRef(null);
 
-    return (
-        <>
-            <Header
-                homeRef={homeRef}
-                aboutRef={aboutRef}
-                educationRef={educationRef}
-                experienceRef={experienceRef}
-                projectsRef={projectsRef}
-                moreRef={moreRef}
-            />
+  return (
+    <>
+      <Header
+        homeRef={homeRef}
+        aboutRef={aboutRef}
+        educationRef={educationRef}
+        experienceRef={experienceRef}
+        projectsRef={projectsRef}
+        moreRef={moreRef}
+      />
 
-            <div className="App">
-                <div className="section_container" ref={homeRef}>
-                    <Home/>
-                </div>
+      <div className="App">
+        <div className="section_container" ref={homeRef}>
+          <Home/>
+        </div>
 
-                <div className="section_container" ref={aboutRef}>
-                    <About/>
-                </div>
+        <div className="section_container" ref={aboutRef}>
+          <About/>
+        </div>
 
-                <div className="section_container" ref={educationRef}>
-                    <Education/>
-                </div>
+        <div className="section_container" ref={educationRef}>
+          <Education/>
+        </div>
 
-                <div className="section_container" ref={experienceRef}>
-                    <Experience/>
-                </div>
+        <div className="section_container" ref={experienceRef}>
+          <Experience/>
+        </div>
 
-                <div className="section_container" ref={projectsRef}>
-                    <Projects/>
-                </div>
+        <div className="section_container" ref={projectsRef}>
+          <Projects/>
+        </div>
 
-                <div className="section_container" ref={moreRef}>
-                    <More/>
-                </div>
+        <div className="section_container" ref={moreRef}>
+          <More/>
+        </div>
 
-                <div className="section_container">
-                    <Others/>
-                </div>
-            </div>
-        </>
-    );
+        <div className="section_container">
+          <Others/>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default App;
