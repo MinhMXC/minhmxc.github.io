@@ -1,6 +1,7 @@
 import SteamAchievementAppImage from "../resources/steam_achievement.png"
 import AnarchyForumImage from "../resources/anarchy_forum.png"
 import Chip8Image from "../resources/chip8_emulator.png"
+import NESEmulatorImage from "../resources/nes-emulator.png"
 import TechChip from "./TechChip";
 import {useState} from "react";
 import {AnimationOnScroll} from "react-animation-on-scroll";
@@ -36,6 +37,12 @@ export default function Projects() {
               style={num === 2 ? style : null}
             >Chip-8 Emulator
             </button>
+            <button
+              className="projects_button"
+              onClick={() => setNum(3)}
+              style={num === 3 ? style : null}
+            >NES Emulator
+            </button>
           </div>
           {
             num === 0
@@ -44,7 +51,9 @@ export default function Projects() {
                 ? <AnarchyForumShowcase/>
                 : num === 2
                   ? <Chip8EmulatorShowcase/>
-                  : <></>
+                  : num === 3
+                    ? <NESEmulatorShowcase />
+                    : <></>
           }
         </div>
       </div>
@@ -116,9 +125,8 @@ function Chip8EmulatorShowcase() {
       <img className="proj_img" src={Chip8Image} alt="screenshot of Chip8 Emulator"/>
 
       <div className="proj_techstack">
-        <TechChip name="C++" color="#6295cc"/>
+        <TechChip name="C++ 17" color="#6295cc"/>
         <TechChip name="SDL" color="#163353"/>
-        <TechChip name="Multithreading" color="#fc6b03"/>
         <TechChip name="Test-Driven Development" color="#4dab3f"/>
       </div>
 
@@ -133,6 +141,33 @@ function Chip8EmulatorShowcase() {
           A software emulator for the original 1977 Chip-8 virtual machine, with support
           for newer SChip instructions. Chip-8 was mainly used for making video games and
           the image above shows a pseudo-3D game being run on the emulator.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function NESEmulatorShowcase() {
+  return (
+    <div className="proj_container">
+      <img className="proj_img" src={NESEmulatorImage} alt="screenshot of Chip8 Emulator"/>
+
+      <div className="proj_techstack">
+        <TechChip name="C++ 17" color="#6295cc"/>
+        <TechChip name="SDL" color="#163353"/>
+        <TechChip name="Test-Driven Development" color="#4dab3f"/>
+      </div>
+
+      <div>
+        <a
+          className="proj_title"
+          href="https://github.com/MinhMXC/NESEmulator"
+          target="_blank"
+          rel="noreferrer"
+        >NES Emulator</a>
+        <p className="proj_desc">
+          A cycle-accurate and performance-optimised software emulator for the Nintendo Entertainment System (NES),
+          released in 1983 in Japan. The image shows the original Mario Bros (1985) being played on the emulator.
         </p>
       </div>
     </div>

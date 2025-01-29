@@ -16,7 +16,21 @@ export default function Education() {
             </div>
             <ul className="education_list">
               <li>Bachelor of Computing (Computer Science).</li>
-              <li>Cumulative Average Point (CAP): 4.89 / 5.0.</li>
+              <li>Cumulative Average Point (CAP): 4.92 / 5.0.</li>
+              <li>Focus Area: Parallel Computing & Networking and Distributed Systems</li>
+              <li>Dean List for AY24-25 Sem 1</li>
+              <li>
+                Relevant Computer Science course Taken (A = top 20%, A+ = top 5%):
+                <ul>
+                  <li>CS1101S Programming Methodology: A+</li>
+                  <li>CS1231S Discrete Structures: A</li>
+                  <li>CS2030S Programming Methodology 2: A+</li>
+                  <li>CS2040S Data Structures and Algorithms: A</li>
+                  <li>CS2100 Computer Organisation: A</li>
+                  <li>CS2102 Database Systems: A+</li>
+                  <li>CS2105 Introduction to Computer Networks: A</li>
+                </ul>
+              </li>
             </ul>
           </div>
 
@@ -28,7 +42,6 @@ export default function Education() {
             </div>
             <ul className="education_list">
               <li>Member of Executive Committee of Guitar Ensemble.</li>
-              <li>Participated in Singapore Youth Festival and obtained Distinction (highest award).</li>
             </ul>
           </div>
 
@@ -44,12 +57,6 @@ export default function Education() {
               </li>
               <li>
                 Gold & Silver Awards for various Mathematics competitions (UKIMC, UKSMC, HXCMO and SASMO).
-              </li>
-              <li>
-                Participated in Singapore Youth Festival and obtained Distinction (highest award).
-              </li>
-              <li>
-                First place in school's Innovation, Design, Engineering eXchange (IDEX) Challenge.
               </li>
             </ul>
           </div>
