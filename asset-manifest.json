@@ -1,20 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.cac24549.css",
-    "main.js": "/static/js/main.9d7f706a.js",
+    "main.js": "/static/js/main.c45f4018.js",
     "static/js/453.1407b060.chunk.js": "/static/js/453.1407b060.chunk.js",
     "static/media/anarchy_forum.png": "/static/media/anarchy_forum.17a3ebe2ef245ebf623d.png",
     "static/media/steam_achievement.png": "/static/media/steam_achievement.1512bb00b4a6748d05b4.png",
+    "static/media/me_photo.jpg": "/static/media/me_photo.d234549f103cf40f8d59.jpg",
     "static/media/chip8_emulator.png": "/static/media/chip8_emulator.b3e4658a6d6f1043fc7d.png",
     "static/media/steam_logo.png": "/static/media/steam_logo.b7bc82f0d918e1e33eba.png",
-    "static/media/me_photo.jpg": "/static/media/me_photo.213f52c19a947ac2788c.jpg",
+    "static/media/nes-emulator.png": "/static/media/nes-emulator.68bdc28cb0be44c7a621.png",
     "index.html": "/index.html",
     "main.cac24549.css.map": "/static/css/main.cac24549.css.map",
-    "main.9d7f706a.js.map": "/static/js/main.9d7f706a.js.map",
+    "main.c45f4018.js.map": "/static/js/main.c45f4018.js.map",
     "453.1407b060.chunk.js.map": "/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cac24549.css",
-    "static/js/main.9d7f706a.js"
+    "static/js/main.c45f4018.js"
   ]
 }
