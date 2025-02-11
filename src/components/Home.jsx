@@ -24,13 +24,13 @@ export default function Home() {
           ]}
           wrapper="span"
           speed="50"
-          style={{fontSize: "3.5rem", fontWeight: "500"}}
+          style={{fontSize: "3rem", fontWeight: "500"}}
           repeat={Infinity}
         />
       </div>
 
       <h3 id="home_intro">
-        I'm a Software Engineer and a computer enthusiast,
+        I'm a Problem Solver and a computer enthusiast,
         <br/>
         having experience in both Mobile and Web Development.
       </h3>

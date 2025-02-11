@@ -18,12 +18,12 @@ export default function Projects() {
         <h1 className="large_heading" id="project_text">Featured Projects</h1>
 
         <div style={{display: "flex", gap: "20px"}}>
-          <div id="projects_buttons_container">
+          <div class="projects_buttons_container">
             <button
               className="projects_button"
               onClick={() => setNum(0)}
               style={num === 0 ? style : null}
-            >Steam Achievement App
+            >Steam Achievement Manager
             </button>
             <button
               className="projects_button"

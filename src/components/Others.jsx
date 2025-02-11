@@ -5,7 +5,7 @@ export default function Others() {
     <div id="others_container">
       <h1 className="large_heading" id="others_text">Others</h1>
 
-      <p className="proj_desc" style={{width: "800px"}}>
+      <p className="proj_desc" style={{width: "700px"}}>
         One of my other life-long hobby is gaming. I am an achievement hunter,
         which means that I try to get every achievement possible in every game.
         Because of this, I also occasionally write video game guide to help out other gamers.

@@ -16,7 +16,7 @@ export default function More() {
           <h1 className="large_heading" id="fun_project_text">Fun Projects</h1>
 
           <div style={{display: "flex", gap: "20px"}}>
-            <div id="projects_buttons_container">
+            <div class="projects_buttons_container">
               <button
                 className="projects_button"
                 onClick={() => setNum(0)}
@@ -47,7 +47,7 @@ export default function More() {
 function BadAppleShowcase() {
   return (
     <div className="proj_container">
-      <iframe width="700" height="394" src="https://www.youtube.com/embed/PulU7kVTtDY?si=UIPMboCNExcXSmA0"
+      <iframe width="600" height="338" src="https://www.youtube.com/embed/PulU7kVTtDY?si=UIPMboCNExcXSmA0"
               title="YouTube video player" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
@@ -79,7 +79,7 @@ function BadAppleShowcase() {
 function MinecraftShowcase() {
   return (
     <div className="proj_container">
-      <iframe width="700" height="394" src="https://www.youtube.com/embed/A7Pq-aBa_NU?si=RoslQ5lOLw65IeRG"
+      <iframe width="600" height="338" src="https://www.youtube.com/embed/A7Pq-aBa_NU?si=RoslQ5lOLw65IeRG"
               title="YouTube video player" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>

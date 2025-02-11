@@ -24,9 +24,10 @@ export default function About() {
               products.
             </p>
             <p className="about_p">
-              Outside of computers, I'm also interested in Japanese tradition and culture. I am currently
-              pursuing
-              a minor in Japanese Language at NUS and can speak basic Japanese fluently.
+              Outside of computers, I also love doing volunteer and contributing back to
+              my community. Combining my passion for computers and volunteerism, I am
+              actively developing a central management system for Heartware Network, a
+              NGO based in Singapore.
             </p>
           </div>
 
