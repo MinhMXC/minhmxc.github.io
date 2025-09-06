@@ -1,22 +1,29 @@
-import { motion } from "motion/react";
+import StartImage from "./StartImage";
 
-export default function StartColumnLast() {
-  const vw = window.innerWidth;
+interface StartColumnLastProps {
+  image1: string;
+  image2: string;
+  image3: string;
+}
+
+export default function StartColumnLast({ image1, image2, image3 }: StartColumnLastProps) {
   const vh = window.innerHeight;
-  const wOffset = -(vw * 0.10);
-  const hOffset = 0;
+  const vw = window.innerWidth;
   const transitions = [
-    {
-      duration: 2.5,
-      delay: 0.5,
-    },
     {
       duration: 2,
       delay: 1,
+      src: image1,
     },
     {
       duration: 1.5,
       delay: 1.5,
+      src: image2,
+    },
+    {
+      duration: 1,
+      delay: 2,
+      src: image3,
     }
   ];
 
@@ -24,15 +31,13 @@ export default function StartColumnLast() {
     <div className="start-column">
       {
         transitions.map(transition =>
-          <motion.div
-            className="start-img"
-            initial={{ x: wOffset, y: vh * 1.15 }}
-            animate={{ y: hOffset }}
-            transition={{
-              duration: transition.duration,
-              delay: transition.delay,
-              ease: [0.85, 0, 0.15, 1]
-            }}
+          <StartImage
+            initialX={-(vw * 0.10)}
+            initialY={vh}
+            animateY={0}
+            duration={transition.duration}
+            delay={transition.delay}
+            src={transition.src}
           />
         )
       }

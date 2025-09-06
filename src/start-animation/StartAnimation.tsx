@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { motion, useAnimate } from "motion/react";
 import StartColumnLast from "./StartColumnLast";
 import StartColumnMiddle from "./StartColumnMiddle";
 import StartColumnCenter from "./StartColumnCenter";
+import { START_EASE } from "../constants";
 
 export default function StartAnimation() {
   const [scope, animate] = useAnimate();
-  const vw = window.innerWidth;
   const vh = window.innerHeight;
-  const wOffset = -(vw * 0.10);
-  const [mode, setMode] = useState<"cover" | "contain">("cover");
+  const vw = window.innerWidth;
 
   async function animateCenter() {
     await animate(
@@ -18,7 +17,7 @@ export default function StartAnimation() {
       {
         duration: 2.5,
         delay: 0.5,
-        ease: [0.85, 0, 0.15, 1]
+        ease: START_EASE
       }
     );
     animate(
@@ -27,7 +26,7 @@ export default function StartAnimation() {
       {
         duration: 1,
         delay: 0,
-        ease: [0.85, 0, 0.15, 1]
+        ease: START_EASE
       }
     );
   }
@@ -38,21 +37,18 @@ export default function StartAnimation() {
 
   return (
     <div>
-      <div style={{
+      <div className="center" style={{
         position: "absolute",
         width: "100%",
         height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
       }}>
         <motion.div
           ref={scope}
-          className="start-img"
-          style={{ zIndex: 999 }}
-          initial={{ x: 0, y: vh * 1.15 }}
+          className="center start-img"
+          style={{ backgroundColor: "transparent", zIndex: 999 }}
+          initial={{ x: 0, y: vh }}
         >
-          <img src="/assets/start/name.png" />
+          <img style={{ objectFit: "cover" }} src="/assets/start/me.jpg" />
         </motion.div>
       </div>
       <motion.div
@@ -61,19 +57,32 @@ export default function StartAnimation() {
         transition={{
           duration: 1,
           delay: 3,
-          ease: [0.85, 0, 0.15, 1]
+          ease: START_EASE
         }}
-      //onUpdate={(latest) => {
-      //  const scale = (latest.scaleY ?? 1) as number;
-      //  const h = vh * 0.30 * scale;
-      //  // setMode(h > 700 ? "contain" : "cover");
-      //}}
       >
-        <StartColumnLast />
-        <StartColumnMiddle />
+        <StartColumnLast
+          image1="/assets/start/bad-apple.png"
+          image2="/assets/start/zelda.png"
+          image3="/assets/start/calculator.png"
+        />
+        <StartColumnMiddle
+          image1="/assets/start/chip8.png"
+          image2="/assets/start/nes.png"
+          image3="/assets/start/forum.png"
+          image4="/assets/start/app.png"
+        />
         <StartColumnCenter />
-        <StartColumnMiddle />
-        <StartColumnLast />
+        <StartColumnMiddle
+          image1="/assets/start/app.png"
+          image2="/assets/start/nus.png"
+          image3="/assets/start/gdsc.png"
+          image4="/assets/start/chip8.png"
+        />
+        <StartColumnLast
+          image1="/assets/start/calculator.png"
+          image2="/assets/start/kungfu.png"
+          image3="/assets/start/bad-apple.png"
+        />
       </motion.div>
     </div>
   );

@@ -1,26 +1,35 @@
-import { motion } from "motion/react";
+import StartImage from "./StartImage";
 
-export default function StartColumnMiddle() {
-  const vw = window.innerWidth;
+interface StartColumnMiddleProps {
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
+}
+
+export default function StartColumnMiddle({ image1, image2, image3, image4 }: StartColumnMiddleProps) {
   const vh = window.innerHeight;
-  const wOffset = -(vw * 0.10);
-  const hOffset = -(vh * 0.15);
+  const vw = window.innerWidth;
   const transitions = [
     {
       duration: 1,
       delay: 2,
+      src: image1,
     },
     {
       duration: 1.5,
       delay: 1.5,
+      src: image2,
     },
     {
       duration: 2,
       delay: 1,
+      src: image3,
     },
     {
       duration: 2.5,
       delay: 0.5,
+      src: image4,
     },
   ];
 
@@ -28,20 +37,16 @@ export default function StartColumnMiddle() {
     <div className="start-column">
       {
         transitions.map(transition =>
-          <motion.div
-            className="start-img"
-            initial={{ x: wOffset, y: -(vh * 1.50) }}
-            animate={{ y: hOffset }}
-            transition={{
-              duration: transition.duration,
-              delay: transition.delay,
-              ease: [0.85, 0, 0.15, 1]
-            }}
+          <StartImage
+            initialX={-(vw * 0.10)}
+            initialY={-(vh * 1.36)}
+            animateY={-(vh * 0.20)}
+            duration={transition.duration}
+            delay={transition.delay}
+            src={transition.src}
           />
         )
       }
     </div>
   );
 }
-
-
