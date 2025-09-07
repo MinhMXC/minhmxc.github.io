@@ -11,6 +11,7 @@ export default defineConfig(
     rules: {
       semi: "error",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-non-null-assertion": "off"
     }
   }
 );

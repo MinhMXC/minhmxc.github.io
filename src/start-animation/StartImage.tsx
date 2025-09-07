@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { START_EASE } from "../constants";
+import { START_EASE } from "./animation-constants";
 
 interface StartImageProps {
   initialX: number;

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import StartImage from "./StartImage";
+import { SLIDE_ANIMATION_DURATION, UP_FINAL_Y_OFFSET_MULTIPLIER, UP_INITIAL_Y_OFFSET_MULTIPLIER, X_OFFSET_MULTIPLIER } from "./animation-constants";
 
 export default function StartColumnCenter() {
   const vh = window.innerHeight;
@@ -8,10 +9,10 @@ export default function StartColumnCenter() {
   return (
     <div className="start-column">
       <StartImage
-        initialX={-(vw * 0.10)}
-        initialY={vh}
-        animateY={0}
-        duration={3}
+        initialX={vw * X_OFFSET_MULTIPLIER}
+        initialY={vh * UP_INITIAL_Y_OFFSET_MULTIPLIER}
+        animateY={vh * UP_FINAL_Y_OFFSET_MULTIPLIER}
+        duration={SLIDE_ANIMATION_DURATION}
         delay={0}
         src="/assets/start/amazon.png"
       />
@@ -20,10 +21,10 @@ export default function StartColumnCenter() {
         style={{ visibility: "hidden" }}
       />
       <StartImage
-        initialX={-(vw * 0.10)}
-        initialY={vh}
-        animateY={0}
-        duration={2}
+        initialX={vw * X_OFFSET_MULTIPLIER}
+        initialY={vh * UP_INITIAL_Y_OFFSET_MULTIPLIER}
+        animateY={vh * UP_FINAL_Y_OFFSET_MULTIPLIER}
+        duration={SLIDE_ANIMATION_DURATION - 1}
         delay={1}
         src="/assets/start/fresh-cars.png"
       />

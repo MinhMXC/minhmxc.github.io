@@ -1,3 +1,4 @@
+import { DOWN_FINAL_Y_OFFSET_MULTIPLIER, DOWN_INITIAL_Y_OFFSET_MULTIPLIER, MIDDLE_COLUMN_DURATION, MIDDLE_COLUMN_LATENCY_OFFSET, X_OFFSET_MULTIPLIER } from "./animation-constants";
 import StartImage from "./StartImage";
 
 interface StartColumnMiddleProps {
@@ -12,23 +13,19 @@ export default function StartColumnMiddle({ image1, image2, image3, image4 }: St
   const vw = window.innerWidth;
   const transitions = [
     {
-      duration: 1,
-      delay: 2,
+      delay: 1.5,
       src: image1,
     },
     {
-      duration: 1.5,
-      delay: 1.5,
+      delay: 1,
       src: image2,
     },
     {
-      duration: 2,
-      delay: 1,
+      delay: 0.5,
       src: image3,
     },
     {
-      duration: 2.5,
-      delay: 0.5,
+      delay: 0,
       src: image4,
     },
   ];
@@ -38,11 +35,11 @@ export default function StartColumnMiddle({ image1, image2, image3, image4 }: St
       {
         transitions.map(transition =>
           <StartImage
-            initialX={-(vw * 0.10)}
-            initialY={-(vh * 1.36)}
-            animateY={-(vh * 0.20)}
-            duration={transition.duration}
-            delay={transition.delay}
+            initialX={vw * X_OFFSET_MULTIPLIER}
+            initialY={vh * DOWN_INITIAL_Y_OFFSET_MULTIPLIER}
+            animateY={vh * DOWN_FINAL_Y_OFFSET_MULTIPLIER}
+            duration={MIDDLE_COLUMN_DURATION - transition.delay}
+            delay={transition.delay + MIDDLE_COLUMN_LATENCY_OFFSET}
             src={transition.src}
           />
         )
