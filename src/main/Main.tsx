@@ -1,43 +1,118 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Background from "./Background";
 import { SCREENS } from "./main-constants";
 import Navigation from "./Navigation";
 import Header from "./Header";
 import About from "./About";
+import Education from "./Education";
+import Experiences from "./Experiences";
+import { MpScreen } from "../types";
+import Projects from "./projects/Projects";
+import FunProjects from "./fun-projects/FunProjects";
+import { motion, useAnimate } from "motion/react";
+
+import meImage from "../assets/wide/me.jpg";
+import nusImage from "../assets/wide/nus.png";
+import amazonImage from "../assets/wide/amazon.png";
+import nesImage from "../assets/wide/nes.png";
+import badAppleImage from "../assets/wide/bad-apple.png";
+
+import backSvg from "../assets/back.svg";
+import nextSvg from "../assets/next.svg";
 
 export default function Main() {
   const [screenIndex, setScreenIndex] = useState(0);
+  const [scope, animate] = useAnimate();
 
-  function changeScreen(toIndex: number) {
+  function changeProjectScreenBg(src: string) {
+    const url = `url("${src}")`;
+    const projectsBg = document.getElementById("Projects-bg");
+    if (projectsBg === null || previousProjectsBg.current === url) {
+      return;
+    }
+
+    previousProjectsBg.current = url;
+    projectsBg.animate({ opacity: 0 }, { duration: 250, fill: "forwards" });
+    projectsBg.animate({ backgroundImage: `url("${src}")` }, { duration: 1, delay: 250, fill: "forwards" });
+    projectsBg.animate({ opacity: 1 }, { duration: 250, delay: 250, fill: "forwards" });
+  }
+
+  function changeFunProjectScreenBg(src: string) {
+    const url = `url("${src}")`;
+    const projectsBg = document.getElementById("Fun Projects-bg");
+    if (projectsBg === null || previousProjectsBg.current === url) {
+      return;
+    }
+
+    previousProjectsBg.current = url;
+    projectsBg.animate({ opacity: 0 }, { duration: 250, fill: "forwards" });
+    projectsBg.animate({ backgroundImage: `url("${src}")` }, { duration: 1, delay: 250, fill: "forwards" });
+    projectsBg.animate({ opacity: 1 }, { duration: 250, delay: 250, fill: "forwards" });
+  }
+
+  const screens: MpScreen[] = [
+    {
+      title: "About",
+      backgroundImg: meImage,
+      foreground: <About />,
+    },
+    {
+      title: "Education",
+      backgroundImg: nusImage,
+      foreground: <Education />,
+    },
+    {
+      title: "Work Experience",
+      backgroundImg: amazonImage,
+      foreground: <Experiences />,
+    },
+    {
+      title: "Projects",
+      backgroundImg: nesImage,
+      foreground: <Projects changeProjectScreenBg={changeProjectScreenBg} />,
+    },
+    {
+      title: "Fun Projects",
+      backgroundImg: badAppleImage,
+      foreground: <FunProjects changeProjectScreenBg={changeFunProjectScreenBg} />,
+    },
+  ];
+
+  const previousProjectsBg = useRef(`url("${screens.find(screen => screen.title === "Projects")!.backgroundImg}")`);
+
+  async function changeScreen(toIndex: number) {
     if (!(0 <= toIndex && toIndex < SCREENS.length)) {
       return;
     }
+    await animate(scope.current, { opacity: 0 }, { duration: 0.1 });
     setScreenIndex(toIndex);
+    animate(scope.current, { opacity: 1 }, { duration: 0.25, delay: 0.1 });
   }
-
 
   return (
     <div>
       <div className="main-cont">
         <Navigation
-          path={<path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />}
+          iconSrc={backSvg}
+          direction="Back"
           onClick={() => changeScreen(screenIndex - 1)}
         />
 
         <div className="main-content-cont">
-          <Header screenIndex={screenIndex} />
-          <div className="main-content">
-            <About />
-          </div>
+          <Header screens={screens} screenIndex={screenIndex} />
+          <motion.div ref={scope}>
+            {screens[screenIndex]?.foreground}
+          </motion.div>
         </div>
 
         <Navigation
-          path={<path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />}
+          iconSrc={nextSvg}
+          direction="Next"
           onClick={() => changeScreen(screenIndex + 1)}
         />
       </div>
 
-      <Background screenIndex={screenIndex} />
+      <Background screens={screens} screenIndex={screenIndex} />
     </div >
   );
 }

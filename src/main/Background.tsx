@@ -1,14 +1,15 @@
 import { motion, useAnimate } from "motion/react";
-import { SCREENS } from "./main-constants";
 import { useEffect, useState } from "react";
+import { MpScreen } from "../types";
 
 interface BackgroundProps {
+  screens: MpScreen[];
   screenIndex: number;
 }
 
-export default function Background({ screenIndex }: BackgroundProps) {
+export default function Background({ screens, screenIndex }: BackgroundProps) {
   const [prevScreenIndex, setPrevScreenIndex] = useState(screenIndex);
-  const [animate, _] = useState(Array.from({ length: SCREENS.length }, () => useAnimate()));
+  const [animate, _] = useState(Array.from({ length: screens.length }, () => useAnimate()));
 
   useEffect(() => {
     animate[prevScreenIndex]![1](
@@ -27,12 +28,13 @@ export default function Background({ screenIndex }: BackgroundProps) {
   return (
     <div className="main-background-cont">
       {
-        SCREENS.map((screen, index) =>
+        screens.map((screen, index) =>
           <motion.div
-            key={index}
+            key={screen.title}
+            id={`${screen.title}-bg`}
             ref={animate[index]![0]}
             className="main-background"
-            style={{ backgroundImage: `url(${screen.src})` }}
+            style={{ backgroundImage: `url(${screen.backgroundImg})` }}
             initial={{ flexGrow: index === 0 ? 1 : 0 }}
           />
         )

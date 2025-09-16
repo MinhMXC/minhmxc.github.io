@@ -5,6 +5,19 @@ import StartColumnMiddle from "./StartColumnMiddle";
 import StartColumnCenter from "./StartColumnCenter";
 import { SLIDE_ANIMATION_DURATION, START_EASE, ZOOM_DELAY, ZOOM_DURATION } from "./animation-constants";
 
+import meImage from "../assets/wide/me.jpg";
+import calculatorImage from "../assets/wide/calculator.png";
+import badAppleImage from "../assets/wide/bad-apple.png";
+import appImage from "../assets/wide/app.png";
+import zeldaImage from "../assets/wide/zelda.png";
+import gdscImage from "../assets/wide/gdsc.png";
+import nesImage from "../assets/wide/nes.png";
+import nusImage from "../assets/wide/nus.png";
+import forumImage from "../assets/wide/forum.png";
+import chip8Image from "../assets/wide/chip8.png";
+import kungfuImage from "../assets/wide/kungfu.png";
+import chikaImage from "../assets/wide/chika.png";
+
 interface StartAnimationProps {
   callback: () => void;
 }
@@ -53,7 +66,7 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
           style={{ backgroundColor: "transparent", zIndex: 999 }}
           initial={{ x: 0, y: vh }}
         >
-          <img style={{ objectFit: "cover" }} src="/assets/start/me.jpg" />
+          <img style={{ objectFit: "cover" }} src={meImage} />
         </motion.div>
       </div>
       <motion.div
@@ -66,27 +79,27 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
         }}
       >
         <StartColumnLast
-          image1="/assets/start/calculator.png"
-          image2="/assets/start/bad-apple.png"
-          image3="/assets/start/app.png"
+          image1={calculatorImage}
+          image2={badAppleImage}
+          image3={appImage}
         />
         <StartColumnMiddle
-          image1="/assets/start/zelda.png"
-          image2="/assets/start/nes.png"
-          image3="/assets/start/forum.png"
-          image4="/assets/start/app.png"
+          image1={zeldaImage}
+          image2={gdscImage}
+          image3={nesImage}
+          image4={appImage}
         />
         <StartColumnCenter />
         <StartColumnMiddle
-          image1="/assets/start/bad-apple.png"
-          image2="/assets/start/nus.png"
-          image3="/assets/start/gdsc.png"
-          image4="/assets/start/chip8.png"
+          image1={badAppleImage}
+          image2={nusImage}
+          image3={forumImage}
+          image4={chip8Image}
         />
         <StartColumnLast
-          image1="/assets/start/kungfu.png"
-          image2="/assets/start/calculator.png"
-          image3="/assets/start/app.png"
+          image1={kungfuImage}
+          image2={calculatorImage}
+          image3={chikaImage}
         />
       </motion.div>
     </div>

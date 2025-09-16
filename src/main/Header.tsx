@@ -1,13 +1,15 @@
 import { motion, useAnimate } from "motion/react";
 import { SCREENS } from "./main-constants";
 import { useEffect, useState } from "react";
+import { MpScreen } from "../types";
 
 interface HeaderProps {
+  screens: MpScreen[];
   screenIndex: number
 }
 
-export default function Header({ screenIndex }: HeaderProps) {
-  const [headerText, setHeaderText] = useState(SCREENS[screenIndex]?.header);
+export default function Header({ screens, screenIndex }: HeaderProps) {
+  const [headerText, setHeaderText] = useState(screens[screenIndex]?.title);
   const [header, animateHeader] = useAnimate();
 
   async function onChange() {
