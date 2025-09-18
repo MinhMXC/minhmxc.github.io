@@ -10,7 +10,7 @@ export const MAIN = {
     }
   },
   navigationAnimation: {
-    distance: 24,
+    distance: 20,
     transition: {
       duration: 0.25,
       easing: "easeOut" as Easing,
@@ -23,7 +23,7 @@ export const MAIN = {
     }
   },
   titleAnimation: {
-    distance: 64,
+    distance: 72,
     transition: {
       duration: 0.25,
       easing: "easeOut" as Easing,

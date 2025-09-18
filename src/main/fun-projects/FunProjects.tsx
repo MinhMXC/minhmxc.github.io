@@ -24,11 +24,11 @@ export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps)
           <p>
             During my introductory programming course at Source Academy, I was inspired to go beyond the
             platform's intended uses. The platform, built for simple exercises like drawing graphs and
-            manipulating sounds, became the canvas for a much more ambitious project of recreating the iconic "Bad Apple" music video.
+            manipulating sounds, became the canvas for a much larger project of recreating the "Bad Apple" music video.
           </p>
           <p>
-            For the <u>audio</u>, I deep-dived into MIDI files and developed a Python script to deconstruct the MIDI file format,
-            converting its musical data into Source Academy's audio instructions.
+            For the <u>audio</u>, I deep-dived into MIDI files and developed a Python script
+            to deconstruct the MIDI file format, converting its musical data into Source Academy's audio instructions.
           </p>
           <p>
             For the <u>graph</u>, I re-purposed my past C# ImageToGraph project to transform video frames into a
@@ -61,12 +61,14 @@ export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps)
       desc: (
         <>
           <p>
-            My highschool had a simple competition: to see who can draw the best picture on a TI-84 graphing calculator.
+            My highschool had a simple contest: to see who can draw the best picture on a TI-84 graphing calculator.
             My goal, obviously, was to win. But I wanted to win with a program.
           </p>
           <p>
-            I developed a C# Windows application, <b>ImageToGraph</b>, that converts any image into a series of equations for a graphing calculator.
-            Thinking bigger, I used the program to converted the "Chika Dance" clip from the anime, <i>Love is War</i> into
+            I developed a C# Windows application, <b>ImageToGraph</b>, that converts any image
+            into a series of equations for a graphing calculator.
+            Thinking bigger, I used the program to converted the
+            "Chika Dance" clip from the anime, <i>Love is War</i> into
             a dynamic graphing animation on Desmos.
           </p>
         </>

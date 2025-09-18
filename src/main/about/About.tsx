@@ -6,14 +6,19 @@ export default function About() {
         Problem <span className="accent-color">Solver</span>
       </h2>
       <p>
-        I am interested in anything computer-related.
-        So far, I have had the chance to develop Android mobile applications,
-        full-stack web applications and video game console emulators.
-        Always excited to learn and gain new experiences in the ever-expanding world of Computer Science.
+        Hello, I'm Minh.
       </p>
       <p>
-        Recently, I just concluded my internship at Amazon Lab126, where I had the rare
-        opportunity to see and work on new upcoming Amazon products.
+        I'm a passionate and curious computer science enthusiast.
+        So far, my journey has led me to explore various areas,
+        including <b>Android</b> mobile application development,
+        full-stack <b>web</b> applications,
+        and even video game console <b>emulators</b>.
+        I'm always eager to learn and gain new experiences in the ever-expanding world of technology.
+      </p>
+      <p>
+        Most recently, I completed an internship at <b>Amazon Lab126</b>,
+        where I had the rare opportunity to work on exciting new Amazon products.
       </p>
       <p>
         Looking forward to any challenges!

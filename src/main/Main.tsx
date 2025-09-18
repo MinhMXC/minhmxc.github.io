@@ -90,9 +90,9 @@ export default function Main() {
       <div className="main-cont">
         <Navigation variant="Back" screenIndex={screenIndex} changeScreenIndex={changeScreenIndex} />
 
-        <div className="main-content-cont">
+        <div className="main-area-cont">
           <Header screens={screens} screenIndex={screenIndex} />
-          <motion.div ref={mainContentScope} {...MAIN.opacityInitialAnimation}>
+          <motion.div ref={mainContentScope} className="main-content-cont" {...MAIN.opacityInitialAnimation}>
             {mainContent}
           </motion.div>
         </div>

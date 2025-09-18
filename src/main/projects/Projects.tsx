@@ -24,10 +24,21 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       desc: (
         <>
           <p>
-            A desktop application that emulates the 1986 Nintendo Entertainment System, letting you play 100+ classic games on modern computers.
-            Built with C++17, it runs smoothly at 400+ FPS and replicates the original console’s behavior with high accuracy using test-driven development.
+            I've always been fascinated by how computers and video games work. So for a project,
+            I decided to go all the way back to the start: a video game console emulator
+            for the 1985 Nintendo Entertainment System with <b>C++</b> and <b>SDL2</b>.
           </p>
-          <p>The video shows the original Super Mario Bros (1985) being played on the emulator.</p>
+          <p>
+            I learned a ton about computer hardware and the fundamentals of code execution.
+            I had to deep-dive into the original 6502 CPU and its instruction set,
+            figure out how to manage memory buses, and solve the puzzle of synchronising
+            the CPU and GPU to get the visuals and audio to work perfectly.
+          </p>
+          <p>
+            Utilising the <b>Catch2</b> library, I made sure my emulator accurately follow behaviours
+            of the original console. At the end, I got a cycle-accurate emulator,
+            capable of running <b>100s</b> of retro games at <b>400FPS++</b>.
+          </p>
         </>
       )
     },
@@ -38,10 +49,18 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       desc: (
         <>
           <p>
-            An Android app that helps gamers track and manage their Steam achievements right from their phone.
-            It supports over 10,000 games using the Steam API and achievement websites, with offline access powered by local caching.
+            As an avid achievement hunter myself, I was frustrated by the lack of tools
+            to easily track my progress on the go. As such, I developed an Android application
+            using <b>Jetpack Compose</b> and <b>Kotlin</b> that helps gamers manage their
+            Steam achievements directly from their phone.
           </p>
-          <p>The image shows the main screen of the application, loaded with games from my Steam account.</p>
+          <p>
+            I built the app to intelligently parse data from the <b>Steam API</b> and various achievement websites,
+            giving users access to over <b>10,000</b> games.
+            To ensure a seamless experience, I designed it with a robust local caching system using <b>SQLite</b>,
+            providing reliable offline access so that users can check their progress anywhere,
+            even without a network connection.
+          </p>
         </>
       )
     },
@@ -52,10 +71,18 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       desc: (
         <>
           <p>
-            A full-featured forum platform where users can post, comment, and discuss a wide range of topics.
-            Built with React and Ruby on Rails, it includes secure authentication and is fully containerized for easy deployment across systems.
+            Being a frequent social media user, I've always been interested in knowing how such large-scale
+            systems are built and developed.
+            This led me to create a full-stack discussion website,
+            a complete forum where users can post, comment, and engage with a community.
           </p>
-          <p>The image shows the main page of the website, with posts from various users</p>
+          <p>
+            I chose <b>React</b> for the front end to create a dynamic and responsive user experience,
+            and <b>Ruby on Rails</b> for the back end to handle data management and API interactions.
+            The build process gave me the technical overview of a scalable web application,
+            from implementing secure user authentication using <b>JSON Web Token</b> to containerizing the
+            entire application with <b>Docker</b> for seamless deployment.
+          </p>
         </>
       )
     },
@@ -66,10 +93,18 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       desc: (
         <>
           <p>
-            A software emulator for the original 1977 Chip-8 virtual machine, with support for newer SChip instructions.
-            Chip-8 was mainly used for making video games and the image above shows a pseudo-3D game being run on the emulator.
+            For this project, I decided to take a journey back in time by building a Chip-8 emulator.
+            The Chip-8 was a simple virtual machine from 1977, a foundational piece of technology
+            for making early video games.
           </p>
-          <p>The video shows Space Invaders being played on the emulator.</p>
+          <p>
+            This project was a fun exercise in low-level programming.
+            I had to reconstruct the entire virtual machine from scratch,
+            implementing the CPU's instruction set, managing the memory,
+            and figuring out how to render graphics on a modern screen.
+            I even went a step further by adding support for SChip instructions to run more advanced games.
+            The process taught me a ton about virtual machines and system architecture.
+          </p>
         </>
       )
     },

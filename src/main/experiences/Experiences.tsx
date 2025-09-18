@@ -1,23 +1,4 @@
-interface ExperienceProps {
-  companyName: string;
-  positionName: string;
-  duration: string;
-  descs: string[];
-}
-
-function Experience({ companyName, positionName, duration, descs }: ExperienceProps) {
-  return (
-    <div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h3><span className="accent-color">{companyName}</span>, <i style={{ fontWeight: 500 }}>{positionName}</i></h3>
-        <h3>{duration}</h3>
-      </div>
-      <ul>
-        {descs.map(desc => <li key={desc}>{desc}</li>)}
-      </ul>
-    </div>
-  );
-}
+import Experience from "./Experience";
 
 export default function Experiences() {
   const experiences = [
@@ -62,11 +43,7 @@ export default function Experiences() {
 
   return (
     <div className="main-content experiences">
-      {
-        experiences.map(exp =>
-          <Experience companyName={exp.companyName} positionName={exp.positionName} duration={exp.duration} descs={exp.descs} />
-        )
-      }
+      {experiences.map(exp => <Experience {...exp} />)}
     </div>
   );
 }

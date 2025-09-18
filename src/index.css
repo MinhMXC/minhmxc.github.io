@@ -74,7 +74,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
   z-index: 999;
 }
 
@@ -90,7 +89,7 @@ body {
   height: 64px;
 }
 
-.main-content-cont {
+.main-area-cont {
   flex-grow: 1;
   height: 100%;
   display: flex;
@@ -98,19 +97,26 @@ body {
   justify-content: center;
 }
 
-.main-content-header-cont {
+.main-area-header-cont {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: end;
   overflow: hidden;
-  top: 20%;
+  top: 18%;
 }
 
-.main-content-header-cont span {
-  font-size: 48px;
+.main-area-header-cont span {
+  font-size: max(3.2vh, 40px);
   color: white;
   font-weight: 500;
+}
+
+.main-content-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-content {
@@ -118,12 +124,13 @@ body {
   max-width: 1200px;
   height: 100%;
   color: white;
-  font-size: 18px;
+  font-size: max(1vh, 14px);
   text-align: justify;
   padding: 24px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .about p {
@@ -147,14 +154,22 @@ body {
 
 .education h4 {
   margin: 12px 0 8px 0;
-  font-size: 19px;
   font-weight: 600;
 }
 
 .education ul {
   margin-top: 8px;
   list-style-type: "-   ";
-  padding-inline-start: 32px;
+  padding-inline-start: 2vh;
+}
+
+.experience-header-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-header-cont i {
+  font-weight: 500;
 }
 
 .experiences {
@@ -170,7 +185,7 @@ body {
 .experiences ul {
   margin: 12px 0 0 0;
   list-style-type: "-   ";
-  padding-inline-start: 32px;
+  padding-inline-start: 2vh;
 }
 
 .projects-slider img {

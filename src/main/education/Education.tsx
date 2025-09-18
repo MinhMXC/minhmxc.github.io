@@ -17,6 +17,15 @@ export default function Education() {
       <h3>Relevant Coursework</h3>
       <div style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
         <div>
+          <h4>General</h4>
+          <ul>
+            <li>CS2030S OOP and Functional Programming (A+)</li>
+            <li>CS2040S Data Structure and Algorithms (A)</li>
+            <li>CS2100 Computer Organisation (A)</li>
+            <li>CS2106 Operating Systems (A-)</li>
+          </ul>
+        </div>
+        <div>
           <h4>Networking</h4>
           <ul>
             <li>CS2015 Intro to Computer Networks (A)</li>
