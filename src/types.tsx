@@ -10,5 +10,5 @@ export interface MpProject {
 export interface MpScreen {
   title: string;
   backgroundImg: string;
-  foreground: ReactNode;
+  content: ReactNode;
 }

@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Background from "./Background";
-import { SCREENS } from "./main-constants";
 import Navigation from "./Navigation";
 import Header from "./Header";
-import About from "./About";
-import Education from "./Education";
-import Experiences from "./Experiences";
+import About from "./about/About";
+import Education from "./education/Education";
+import Experiences from "./experiences/Experiences";
 import { MpScreen } from "../types";
 import Projects from "./projects/Projects";
 import FunProjects from "./fun-projects/FunProjects";
@@ -17,103 +16,91 @@ import amazonImage from "../assets/wide/amazon.png";
 import nesImage from "../assets/wide/nes.png";
 import badAppleImage from "../assets/wide/bad-apple.png";
 
-import backSvg from "../assets/back.svg";
-import nextSvg from "../assets/next.svg";
+import { MAIN } from "../constants";
 
 export default function Main() {
-  const [screenIndex, setScreenIndex] = useState(0);
-  const [scope, animate] = useAnimate();
+  function getChangeScreenBg(id: string) {
+    return (newSrc: string) => {
+      const url = `url("${newSrc}")`;
+      const projectsBg = document.getElementById(id);
+      if (projectsBg === null || projectsBg.style.backgroundImage === url) {
+        return;
+      }
 
-  function changeProjectScreenBg(src: string) {
-    const url = `url("${src}")`;
-    const projectsBg = document.getElementById("Projects-bg");
-    if (projectsBg === null || previousProjectsBg.current === url) {
-      return;
-    }
-
-    previousProjectsBg.current = url;
-    projectsBg.animate({ opacity: 0 }, { duration: 250, fill: "forwards" });
-    projectsBg.animate({ backgroundImage: `url("${src}")` }, { duration: 1, delay: 250, fill: "forwards" });
-    projectsBg.animate({ opacity: 1 }, { duration: 250, delay: 250, fill: "forwards" });
-  }
-
-  function changeFunProjectScreenBg(src: string) {
-    const url = `url("${src}")`;
-    const projectsBg = document.getElementById("Fun Projects-bg");
-    if (projectsBg === null || previousProjectsBg.current === url) {
-      return;
-    }
-
-    previousProjectsBg.current = url;
-    projectsBg.animate({ opacity: 0 }, { duration: 250, fill: "forwards" });
-    projectsBg.animate({ backgroundImage: `url("${src}")` }, { duration: 1, delay: 250, fill: "forwards" });
-    projectsBg.animate({ opacity: 1 }, { duration: 250, delay: 250, fill: "forwards" });
+      const duration = MAIN.bgChangeAnimation.options.duration as number;
+      projectsBg.animate({ opacity: 0 }, { ...MAIN.bgChangeAnimation.options });
+      projectsBg.animate({ backgroundImage: url }, { duration: 1, delay: duration, fill: "forwards" });
+      projectsBg.animate({ opacity: 1 }, { delay: duration, ...MAIN.bgChangeAnimation.options });
+      setTimeout(() => projectsBg.style.backgroundImage = url, duration * 2);
+    };
   }
 
   const screens: MpScreen[] = [
     {
       title: "About",
       backgroundImg: meImage,
-      foreground: <About />,
+      content: <About />,
     },
     {
       title: "Education",
       backgroundImg: nusImage,
-      foreground: <Education />,
+      content: <Education />,
     },
     {
       title: "Work Experience",
       backgroundImg: amazonImage,
-      foreground: <Experiences />,
+      content: <Experiences />,
     },
     {
       title: "Projects",
       backgroundImg: nesImage,
-      foreground: <Projects changeProjectScreenBg={changeProjectScreenBg} />,
+      content: <Projects changeProjectScreenBg={getChangeScreenBg("Projects-bg")} />,
     },
     {
       title: "Fun Projects",
       backgroundImg: badAppleImage,
-      foreground: <FunProjects changeProjectScreenBg={changeFunProjectScreenBg} />,
+      content: <FunProjects changeProjectScreenBg={getChangeScreenBg("Fun Projects-bg")} />,
     },
   ];
 
-  const previousProjectsBg = useRef(`url("${screens.find(screen => screen.title === "Projects")!.backgroundImg}")`);
+  const [screenIndex, setScreenIndex] = useState(0);
+  const [mainContent, setMainContent] = useState(screens[screenIndex]!.content);
+  const [mainContentScope, animateMainContent] = useAnimate();
 
-  async function changeScreen(toIndex: number) {
-    if (!(0 <= toIndex && toIndex < SCREENS.length)) {
-      return;
+  function changeScreenIndex(destScreenIndex: number): boolean {
+    if (destScreenIndex < 0 || destScreenIndex >= screens.length) {
+      return false;
     }
-    await animate(scope.current, { opacity: 0 }, { duration: 0.1 });
-    setScreenIndex(toIndex);
-    animate(scope.current, { opacity: 1 }, { duration: 0.25, delay: 0.1 });
+    setScreenIndex(destScreenIndex);
+    return true;
   }
+
+  async function changeMainContent() {
+    await animateMainContent(mainContentScope.current, { opacity: 0 }, MAIN.mainContentAnimation.transition);
+    setMainContent(screens[screenIndex]!.content);
+    animateMainContent(mainContentScope.current, { opacity: 1 }, MAIN.mainContentAnimation.transition);
+  }
+
+  useEffect(() => {
+    changeMainContent();
+  }, [screenIndex]);
 
   return (
     <div>
       <div className="main-cont">
-        <Navigation
-          iconSrc={backSvg}
-          direction="Back"
-          onClick={() => changeScreen(screenIndex - 1)}
-        />
+        <Navigation variant="Back" screenIndex={screenIndex} changeScreenIndex={changeScreenIndex} />
 
         <div className="main-content-cont">
           <Header screens={screens} screenIndex={screenIndex} />
-          <motion.div ref={scope}>
-            {screens[screenIndex]?.foreground}
+          <motion.div ref={mainContentScope} {...MAIN.opacityInitialAnimation}>
+            {mainContent}
           </motion.div>
         </div>
 
-        <Navigation
-          iconSrc={nextSvg}
-          direction="Next"
-          onClick={() => changeScreen(screenIndex + 1)}
-        />
+        <Navigation variant="Next" screenIndex={screenIndex} changeScreenIndex={changeScreenIndex} />
       </div>
 
       <Background screens={screens} screenIndex={screenIndex} />
     </div >
   );
 }
-

@@ -122,10 +122,8 @@ body {
   text-align: justify;
   padding: 24px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .about p {

@@ -1,35 +1,49 @@
 import { motion, useAnimate } from "motion/react";
+import { MAIN } from "../constants";
+
+import backSvg from "../assets/back.svg";
+import nextSvg from "../assets/next.svg";
 
 interface NavigationProps {
-  iconSrc: string;
-  direction: "Back" | "Next";
-  onClick: () => void;
+  variant: "Back" | "Next";
+  screenIndex: number;
+  changeScreenIndex: (destScreenIndex: number) => boolean;
 }
 
-export default function Navigation({ iconSrc, direction, onClick }: NavigationProps) {
+export default function Navigation({ screenIndex, variant, changeScreenIndex }: NavigationProps) {
   const [button, animateButton] = useAnimate();
-  const offset = direction === "Back" ? 1 : direction === "Next" ? -1 : 0;
+  const svg = variant === "Back" ? backSvg : nextSvg;
+  const direction = variant === "Back" ? -1 : 1;
 
-  async function click() {
-    onClick();
-    await animateButton(button.current, { x: -24 * offset }, { duration: 0.25, ease: "easeOut" });
-    await animateButton(button.current, { x: 24 * offset }, { duration: 0.001, ease: "easeOut" });
-    animateButton(button.current, { x: 0 }, { duration: 0.25, ease: "easeIn" });
+  async function animate() {
+    await animateButton(
+      button.current,
+      { x: MAIN.navigationAnimation.distance * direction },
+      MAIN.navigationAnimation.transition
+    );
+    await animateButton(
+      button.current,
+      { x: -MAIN.navigationAnimation.distance * direction },
+      { duration: 0.0001 }
+    );
+    animateButton(button.current, { x: 0 }, MAIN.navigationAnimation.transition);
+  }
+
+  async function onClick() {
+    const isSuccessful = changeScreenIndex(screenIndex + direction);
+    if (isSuccessful) {
+      animate();
+    }
   }
 
   return (
-    <div
-      className="main-navigate center"
-      onClick={click}
-    >
+    <div className="main-navigate center" onClick={onClick}>
       <div style={{ overflow: "hidden" }}>
         <motion.img
           ref={button}
           className="unselectable"
-          src={iconSrc}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          src={svg}
+          {...MAIN.opacityInitialAnimation}
         />
       </div>
     </div>
