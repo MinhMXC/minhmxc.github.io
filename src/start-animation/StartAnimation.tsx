@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, useAnimate } from "motion/react";
 import StartColumnLast from "./StartColumnLast";
 import StartColumnMiddle from "./StartColumnMiddle";
 import StartColumnCenter from "./StartColumnCenter";
-import { SLIDE_ANIMATION_DURATION, START_EASE, ZOOM_DELAY, ZOOM_DURATION } from "./animation-constants";
+import { SLIDE_DURATION, SLIDE_EASE, ZOOM_DELAY, ZOOM_DURATION } from "./constants";
 
 import meImage from "../assets/wide/me.jpg";
+import amazonImage from "../assets/wide/amazon.png";
+import freshCarsImage from "../assets/wide/fresh-cars.png";
 import calculatorImage from "../assets/wide/calculator.png";
 import badAppleImage from "../assets/wide/bad-apple.png";
 import appImage from "../assets/wide/app.png";
@@ -32,9 +34,9 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
       scope.current,
       { y: 0 },
       {
-        duration: SLIDE_ANIMATION_DURATION - 0.5,
+        duration: SLIDE_DURATION - 0.5,
         delay: 0.5,
-        ease: START_EASE
+        ease: SLIDE_EASE
       }
     );
     await animate(
@@ -43,7 +45,7 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
       {
         duration: ZOOM_DURATION,
         delay: ZOOM_DELAY,
-        ease: START_EASE
+        ease: SLIDE_EASE
       }
     );
     callback();
@@ -54,28 +56,22 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
   });
 
   return (
-    <div>
-      <div className="center" style={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-      }}>
-        <motion.div
+    <React.Fragment>
+      <div className="center-image">
+        <motion.img
           ref={scope}
-          className="center start-img"
-          style={{ backgroundColor: "transparent", zIndex: 999 }}
+          className="center-image__image"
+          src={meImage}
           initial={{ x: 0, y: vh }}
-        >
-          <img style={{ objectFit: "cover" }} src={meImage} />
-        </motion.div>
+        />
       </div>
       <motion.div
-        className="start-animation"
+        className="sanim"
         animate={{ scaleX: 5, scaleY: 10 / 3 }}
         transition={{
           duration: ZOOM_DURATION,
           delay: ZOOM_DELAY,
-          ease: START_EASE
+          ease: SLIDE_EASE
         }}
       >
         <StartColumnLast
@@ -89,7 +85,10 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
           image3={nesImage}
           image4={appImage}
         />
-        <StartColumnCenter />
+        <StartColumnCenter
+          image1={amazonImage}
+          image2={freshCarsImage}
+        />
         <StartColumnMiddle
           image1={badAppleImage}
           image2={nusImage}
@@ -102,6 +101,6 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
           image3={chikaImage}
         />
       </motion.div>
-    </div>
+    </React.Fragment>
   );
 }

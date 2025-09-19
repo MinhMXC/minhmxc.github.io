@@ -1,35 +1,34 @@
 import { motion } from "motion/react";
-import { START_EASE } from "./animation-constants";
+import { SLIDE_EASE, X_OFFSET_MULT } from "./constants";
 
 interface StartImageProps {
-  initialX: number;
   initialY: number;
-  animateY: number;
+  finalY: number;
   duration: number;
   delay: number;
   src?: string;
 }
 
 export default function StartImage({
-  initialX,
   initialY,
-  animateY,
+  finalY,
   duration,
   delay,
   src
 }: StartImageProps) {
+  const vw = window.innerWidth;
+
   return (
-    <motion.div
-      className="start-img"
-      initial={{ x: initialX, y: initialY }}
-      animate={{ y: animateY }}
+    <motion.img
+      className="sanim__image"
+      src={src}
+      initial={{ x: vw * X_OFFSET_MULT, y: initialY }}
+      animate={{ y: finalY }}
       transition={{
         duration: duration,
         delay: delay,
-        ease: START_EASE
+        ease: SLIDE_EASE
       }}
-    >
-      <img src={src} />
-    </motion.div>
+    />
   );
 }

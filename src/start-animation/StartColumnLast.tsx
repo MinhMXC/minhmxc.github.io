@@ -1,4 +1,4 @@
-import { LAST_COLUMN_DURATION, LAST_COLUMN_LATENCY_OFFSET, UP_FINAL_Y_OFFSET_MULTIPLIER, UP_INITIAL_Y_OFFSET_MULTIPLIER, X_OFFSET_MULTIPLIER } from "./animation-constants";
+import { LAST_COLUMN_DURATION, LAST_LATENCY_OFFSET, UP_FINAL_Y_MULT, UP_INITIAL_Y_MULT } from "./constants";
 import StartImage from "./StartImage";
 
 interface StartColumnLastProps {
@@ -9,7 +9,7 @@ interface StartColumnLastProps {
 
 export default function StartColumnLast({ image1, image2, image3 }: StartColumnLastProps) {
   const vh = window.innerHeight;
-  const vw = window.innerWidth;
+
   const transitions = [
     {
       delay: 0,
@@ -26,15 +26,14 @@ export default function StartColumnLast({ image1, image2, image3 }: StartColumnL
   ];
 
   return (
-    <div className="start-column">
+    <div className="sanim__column">
       {
         transitions.map(transition =>
           <StartImage
-            initialX={vw * X_OFFSET_MULTIPLIER}
-            initialY={vh * UP_INITIAL_Y_OFFSET_MULTIPLIER}
-            animateY={vh * (UP_FINAL_Y_OFFSET_MULTIPLIER + -0.15)}
+            initialY={vh * UP_INITIAL_Y_MULT}
+            finalY={vh * (UP_FINAL_Y_MULT + -0.15)}
             duration={LAST_COLUMN_DURATION - transition.delay}
-            delay={transition.delay + LAST_COLUMN_LATENCY_OFFSET}
+            delay={transition.delay + LAST_LATENCY_OFFSET}
             src={transition.src}
           />
         )

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { MpProject } from "../../types";
+import { PROJECT } from "../../constants";
 
 interface SliderProps {
   projects: MpProject[];
@@ -14,15 +15,35 @@ export default function ProjectSlider({ projects, initialPercentage, changeModeD
   const disabled = useRef(false);
   const container = useRef<HTMLDivElement>(null);
 
+  function changePercentage(increment: number) {
+    if (container.current === null) {
+      return;
+    }
+    percentage.current = Math.min(Math.max(percentage.current + increment, -100), 0);
+    container.current.animate(
+      { transform: `translate(${percentage.current}%, 0%)` },
+      PROJECT.imageSlidingAnimation.transition
+    );
+    for (const image of container.current.getElementsByTagName("img")) {
+      image.animate(
+        { objectPosition: `${percentage.current + 100}% 50%` },
+        PROJECT.imageSlidingAnimation.transition
+      );
+    }
+  }
+
   // Set up mouse tracking event listeners
   useEffect(() => {
     if (container.current === null || container.current.parentElement === null) {
       return;
     }
 
+    // Start tracking down mouse movement
     container.current.parentElement.onmousedown = (event) => {
       mouseDownAt.current = event.clientX;
     };
+
+    // Calculate scroll progress from mouse movement
     container.current.parentElement.onmousemove = (event) => {
       if (container.current === null || mouseDownAt.current === 0) {
         return;
@@ -30,35 +51,30 @@ export default function ProjectSlider({ projects, initialPercentage, changeModeD
       disabled.current = true;
       const mouseDelta = mouseDownAt.current - event.clientX;
       mouseDownAt.current = event.clientX;
-      percentage.current += (mouseDelta / (container.current.clientWidth)) * -100;
-      percentage.current = Math.min(Math.max(percentage.current, -100), 0);
-      container.current.animate({ transform: `translate(${percentage.current}%, 0%)` }, { duration: 1200, fill: "forwards" });
-      for (const image of container.current.getElementsByTagName("img")) {
-        image.animate({ objectPosition: `${percentage.current + 100}% 50%` }, { duration: 1200, fill: "forwards" });
-      }
+      changePercentage((mouseDelta / (container.current.clientWidth)) * -100);
     };
+
+    // Stop tracking
     container.current.parentElement.onmouseup = () => {
       mouseDownAt.current = 0;
-      setTimeout(() => disabled.current = false, 50);
+      // NOTE: Important, so that users don't accidentally
+      // click on the image when they try to scroll
+      setTimeout(() => disabled.current = false, PROJECT.disableClickDuration);
     };
+
+    // Stop tracking
     container.current.parentElement.onmouseleave = () => {
       mouseDownAt.current = 0;
     };
-    container.current.addEventListener("wheel", (event) => {
-      if (container.current === null) {
-        return;
-      }
 
-      const increment = event.deltaX !== 0 ? -event.deltaX / Math.abs(event.deltaX) : -event.deltaY / Math.abs(event.deltaY);
-      percentage.current = Math.min(Math.max(percentage.current + increment * 2, -100), 0);
-      container.current.animate({ transform: `translate(${percentage.current}%, 0%)` }, { duration: 1200, fill: "forwards" });
-      for (const image of container.current.getElementsByTagName("img")) {
-        image.animate({ objectPosition: `${percentage.current + 100}% 50%` }, { duration: 1200, fill: "forwards" });
-      }
+    // Same thing but for mouse scroll wheel
+    container.current.addEventListener("wheel", (event) => {
+      changePercentage(-3.5 * Math.sign(event.deltaX !== 0 ? event.deltaX : event.deltaY));
     });
   }, [container.current]);
 
-  // Move images to its initial position.
+
+  // Move images to its initial position when switched back
   useEffect(() => {
     if (container.current !== null) {
       container.current.style.transform = `translate(${percentage.current}%, 0%)`;
@@ -68,23 +84,31 @@ export default function ProjectSlider({ projects, initialPercentage, changeModeD
     }
   }, [initialPercentage]);
 
+  function getImageOnClick(project: MpProject) {
+    return () => {
+      if (disabled.current) {
+        return;
+      }
+      changeModeDescription(project, percentage.current);
+    };
+  }
+
+
   return (
     <motion.div key={0} ref={container} className="projects-slider">
-      <div className="unselectable" style={{ width: "50%", flexShrink: 0 }}>&nbsp;</div>
       {
         projects.map((project, index) =>
           <motion.img
             key={project.title}
             src={project.narrowImg}
             draggable={false}
-            onClick={() => { if (disabled.current) return; changeModeDescription(project, percentage.current); }}
+            onClick={getImageOnClick(project)}
             initial={{ y: "120%" }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.10, ease: [0.25, 0.5, 0.4, 1] }}
           />
         )
       }
-      <div className="unselectable" style={{ width: "60%", flexShrink: 0 }}>&nbsp;</div>
     </motion.div>
   );
 }

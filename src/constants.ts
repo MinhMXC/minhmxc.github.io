@@ -23,7 +23,7 @@ export const MAIN = {
     }
   },
   titleAnimation: {
-    distance: 72,
+    distance: 112,
     transition: {
       duration: 0.25,
       easing: "easeOut" as Easing,
@@ -33,6 +33,22 @@ export const MAIN = {
     options: {
       duration: 250,
       easing: "linear",
+      fill: "forwards"
+    } as KeyframeAnimationOptions
+  }
+};
+
+export const PROJECT = {
+  disableClickDuration: 50,
+  opacityAnimation: {
+    transition: {
+      duration: 0.25,
+      easing: "linear" as Easing
+    }
+  },
+  imageSlidingAnimation: {
+    transition: {
+      duration: 1200,
       fill: "forwards"
     } as KeyframeAnimationOptions
   }

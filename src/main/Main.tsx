@@ -67,6 +67,7 @@ export default function Main() {
   const [mainContent, setMainContent] = useState(screens[screenIndex]!.content);
   const [mainContentScope, animateMainContent] = useAnimate();
 
+  // TODO: Use arrow button to navigate
   function changeScreenIndex(destScreenIndex: number): boolean {
     if (destScreenIndex < 0 || destScreenIndex >= screens.length) {
       return false;

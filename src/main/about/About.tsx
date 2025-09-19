@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div className="main-content about">
       <h2>
-        Technology <span className="accent-color">Enthusiast</span> and
+        Technology <span className="accent-color">Enthusiast</span>;
         Problem <span className="accent-color">Solver</span>
       </h2>
       <p>

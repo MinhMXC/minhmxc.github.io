@@ -90,7 +90,7 @@ body {
 }
 
 .main-area-cont {
-  flex-grow: 1;
+  width: 70%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -103,7 +103,7 @@ body {
   justify-content: center;
   align-items: end;
   overflow: hidden;
-  top: 18%;
+  top: 16%;
 }
 
 .main-area-header-cont span {
@@ -121,12 +121,12 @@ body {
 
 .main-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 80vh;
   height: 100%;
   color: white;
   font-size: max(1vh, 14px);
   text-align: justify;
-  padding: 24px;
+  padding: 1.5vh;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
@@ -175,7 +175,7 @@ body {
 .experiences {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5vh;
 }
 
 .experiences h3 {
@@ -183,14 +183,22 @@ body {
 }
 
 .experiences ul {
-  margin: 12px 0 0 0;
+  margin: 0.5vh 0 0 0;
   list-style-type: "-   ";
   padding-inline-start: 2vh;
 }
 
+.projects-slider {
+  display: flex;
+  min-width: fit-content;
+  gap: 1.5vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .projects-slider img {
-  width: 30%;
-  height: 500px;
+  width: min(20vh, 600px);
+  height: min(35vh, 800px);
   flex-shrink: 0;
   object-fit: cover;
   object-position: 100% 50%;
@@ -198,14 +206,7 @@ body {
   -o-user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
-}
-
-.projects-slider {
-  display: flex;
-  gap: 20px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  user-select: noneo
 }
 
 .projects-slider::-webkit-scrollbar {

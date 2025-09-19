@@ -1,35 +1,31 @@
 import { motion } from "motion/react";
 import StartImage from "./StartImage";
-import { SLIDE_ANIMATION_DURATION, UP_FINAL_Y_OFFSET_MULTIPLIER, UP_INITIAL_Y_OFFSET_MULTIPLIER, X_OFFSET_MULTIPLIER } from "./animation-constants";
+import { SLIDE_DURATION, UP_FINAL_Y_MULT, UP_INITIAL_Y_MULT } from "./constants";
 
-import amazonImage from "../assets/wide/amazon.png";
-import freshCarsImage from "../assets/wide/fresh-cars.png";
+interface StartColumnCenterProps {
+  image1: string;
+  image2: string;
+}
 
-export default function StartColumnCenter() {
+export default function StartColumnCenter({ image1, image2 }: StartColumnCenterProps) {
   const vh = window.innerHeight;
-  const vw = window.innerWidth;
 
   return (
-    <div className="start-column">
+    <div className="sanim__column">
       <StartImage
-        initialX={vw * X_OFFSET_MULTIPLIER}
-        initialY={vh * UP_INITIAL_Y_OFFSET_MULTIPLIER}
-        animateY={vh * UP_FINAL_Y_OFFSET_MULTIPLIER}
-        duration={SLIDE_ANIMATION_DURATION}
+        initialY={vh * UP_INITIAL_Y_MULT}
+        finalY={vh * UP_FINAL_Y_MULT}
+        duration={SLIDE_DURATION}
         delay={0}
-        src={amazonImage}
+        src={image1}
       />
-      <motion.div
-        className="start-img"
-        style={{ visibility: "hidden" }}
-      />
+      <motion.div className="sanim__center-image" />
       <StartImage
-        initialX={vw * X_OFFSET_MULTIPLIER}
-        initialY={vh * UP_INITIAL_Y_OFFSET_MULTIPLIER}
-        animateY={vh * UP_FINAL_Y_OFFSET_MULTIPLIER}
-        duration={SLIDE_ANIMATION_DURATION - 1}
+        initialY={vh * UP_INITIAL_Y_MULT}
+        finalY={vh * UP_FINAL_Y_MULT}
+        duration={SLIDE_DURATION - 1}
         delay={1}
-        src={freshCarsImage}
+        src={image2}
       />
     </div>
   );
