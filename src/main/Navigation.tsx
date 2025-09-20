@@ -37,11 +37,11 @@ export default function Navigation({ screenIndex, variant, changeScreenIndex }: 
   }
 
   return (
-    <div className="main-navigate center" onClick={onClick}>
-      <div style={{ overflow: "hidden" }}>
+    <div className="nav" onClick={onClick}>
+      <div className="nav__anim-container">
         <motion.img
           ref={button}
-          className="unselectable"
+          className="nav__icon"
           src={svg}
           {...MAIN.opacityInitialAnimation}
         />

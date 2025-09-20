@@ -1,6 +1,6 @@
 import { Easing } from "motion";
 
-export const SLIDE_EASE = [0.75, 0, 0.30, 0.70] as Easing;
+export const SLIDE_EASE = [0.65, 0.00, 0.30, 0.70] as Easing;
 
 export const SLIDE_DURATION = 3;
 export const X_OFFSET_MULT = -0.10;

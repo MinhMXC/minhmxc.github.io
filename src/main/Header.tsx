@@ -27,8 +27,8 @@ export default function Header({ screens, screenIndex }: HeaderProps) {
   }, [screenIndex]);
 
   return (
-    <div className="main-area-header-cont">
-      <motion.span ref={header} {...MAIN.opacityInitialAnimation}>
+    <div className="header">
+      <motion.span ref={header} className="header__text" {...MAIN.opacityInitialAnimation}>
         {headerText}
       </motion.span>
     </div>

@@ -68,7 +68,7 @@ export default function ProjectSlider({ projects, initialPercentage, changeModeD
     };
 
     // Same thing but for mouse scroll wheel
-    container.current.addEventListener("wheel", (event) => {
+    window.addEventListener("wheel", (event) => {
       changePercentage(-3.5 * Math.sign(event.deltaX !== 0 ? event.deltaX : event.deltaY));
     });
   }, [container.current]);
@@ -95,11 +95,12 @@ export default function ProjectSlider({ projects, initialPercentage, changeModeD
 
 
   return (
-    <motion.div key={0} ref={container} className="projects-slider">
+    <motion.div key={0} ref={container} className="proj__slider">
       {
         projects.map((project, index) =>
           <motion.img
             key={project.title}
+            className="proj__slider__image"
             src={project.narrowImg}
             draggable={false}
             onClick={getImageOnClick(project)}

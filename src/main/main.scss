@@ -1,0 +1,92 @@
+@use 'sass:math';
+@use '../_common.scss';
+
+$main-width: 70%;
+$nav-width: math.div(100% - 70%, 2);
+
+//  NOTE: Background
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  opacity: 0.5;
+}
+
+.background__image {
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+//  NOTE: Header
+
+.header-aligner {
+  @extend .center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.header-aligner__item {
+  width: $main-width;
+  visibility: hidden;
+}
+
+.header {
+  @extend .center;
+  position: relative;
+  bottom: 6%;
+  overflow: hidden;
+}
+
+.header__text {
+  font-size: max(3.2vh, 40px);
+  color: white;
+  font-weight: 500;
+}
+
+//  NOTE: Navigation
+
+.nav {
+  @extend .center;
+  width: $nav-width;
+  height: 100%;
+}
+
+.nav__anim-container {
+  overflow: hidden;
+}
+
+.nav__icon {
+  @extend .unselectable;
+}
+
+//  NOTE: Main
+
+.foreground {
+  @extend .center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.main {
+  @extend .center;
+  width: $main-width;
+}
+
+.main__content-container {
+  @extend .center;
+  width: 100%;
+}

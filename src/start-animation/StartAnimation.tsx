@@ -25,28 +25,20 @@ interface StartAnimationProps {
 }
 
 export default function StartAnimation({ callback }: StartAnimationProps) {
-  const [scope, animate] = useAnimate();
+  const [centerImage, animateCenterImage] = useAnimate();
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
   async function animateCenter() {
-    animate(
-      scope.current,
+    animateCenterImage(
+      centerImage.current,
       { y: 0 },
-      {
-        duration: SLIDE_DURATION - 0.5,
-        delay: 0.5,
-        ease: SLIDE_EASE
-      }
+      { duration: SLIDE_DURATION - 0.5, delay: 0.5, ease: SLIDE_EASE }
     );
-    await animate(
-      scope.current,
+    await animateCenterImage(
+      centerImage.current,
       { width: vw, height: vh, opacity: 0.5 },
-      {
-        duration: ZOOM_DURATION,
-        delay: ZOOM_DELAY,
-        ease: SLIDE_EASE
-      }
+      { duration: ZOOM_DURATION, delay: ZOOM_DELAY, ease: SLIDE_EASE }
     );
     callback();
   }
@@ -58,21 +50,12 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
   return (
     <React.Fragment>
       <div className="center-image">
-        <motion.img
-          ref={scope}
-          className="center-image__image"
-          src={meImage}
-          initial={{ x: 0, y: vh }}
-        />
+        <motion.img ref={centerImage} className="center-image__image" src={meImage} initial={{ x: 0, y: vh }} />
       </div>
       <motion.div
         className="sanim"
         animate={{ scaleX: 5, scaleY: 10 / 3 }}
-        transition={{
-          duration: ZOOM_DURATION,
-          delay: ZOOM_DELAY,
-          ease: SLIDE_EASE
-        }}
+        transition={{ duration: ZOOM_DURATION, delay: ZOOM_DELAY, ease: SLIDE_EASE }}
       >
         <StartColumnLast
           image1={calculatorImage}

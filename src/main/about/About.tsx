@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <div className="main-content about">
-      <h2>
-        Technology <span className="accent-color">Enthusiast</span>;
+    <div className="content about">
+      <h2 className="about__title">
+        <span className="accent-color">Technology</span> Enthusiast;
         Problem <span className="accent-color">Solver</span>
       </h2>
       <p>

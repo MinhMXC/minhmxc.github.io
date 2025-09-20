@@ -26,14 +26,14 @@ export default function Background({ screens, screenIndex }: BackgroundProps) {
   }, [screenIndex]);
 
   return (
-    <div className="main-background-cont">
+    <div className="background">
       {
         screens.map((screen, index) =>
           <motion.div
             key={screen.title}
             id={`${screen.title}-bg`}
             ref={animate[index]![0]}
-            className="main-background"
+            className="background__image"
             style={{ backgroundImage: `url(${screen.backgroundImg})` }}
             initial={{ flexGrow: index === 0 ? 1 : 0 }}
           />

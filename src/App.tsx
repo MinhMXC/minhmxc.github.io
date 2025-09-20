@@ -8,12 +8,11 @@ export default function App() {
 
   return (
     <>
-      <StartAnimation callback={() => { return; }} />
-      { /*
+      {
         programState === 0
           ? <StartAnimation callback={() => setProgramState(1)} />
           : <Main />
-      */ }
+      }
     </>
   );
 }

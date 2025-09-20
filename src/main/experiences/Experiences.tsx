@@ -3,8 +3,8 @@ import Experience from "./Experience";
 export default function Experiences() {
   const experiences = [
     {
-      companyName: "Amazon Lab126",
-      positionName: "Manufacturing Test Engineer Intern",
+      company: "Amazon Lab126",
+      position: "Manufacturing Test Engineer Intern",
       duration: "May - Aug 2025",
       descs: [
         "Oversaw development of a new module to visualise text-based testing logs with React and Typescript, " +
@@ -16,8 +16,8 @@ export default function Experiences() {
       ]
     },
     {
-      companyName: "Fresh Cars",
-      positionName: "Software Engineer Intern",
+      company: "Fresh Cars",
+      position: "Software Engineer Intern",
       duration: "May - Aug 2024",
       descs: [
         "Led the development of the company new workshop module, leveraging Javascript, React, Node.js, and Firebase, " +
@@ -29,8 +29,8 @@ export default function Experiences() {
       ]
     },
     {
-      companyName: "National University of Singapore",
-      positionName: "Teaching Assistant",
+      company: "National University of Singapore",
+      position: "Teaching Assistant",
       duration: "Aug 2024 - Present",
       descs: [
         "Taught foundational Java and Javascript programming courses for undergraduate students, " +

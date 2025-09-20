@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Background from "./Background";
 import Navigation from "./Navigation";
 import Header from "./Header";
@@ -83,17 +83,24 @@ export default function Main() {
   }
 
   useEffect(() => {
+    window.onkeyup = (event) => {
+      if (event.code === "ArrowRight" || event.code === "KeyD") {
+        changeScreenIndex(screenIndex + 1);
+      } else if (event.code === "ArrowLeft" || event.code === "KeyA") {
+        changeScreenIndex(screenIndex - 1);
+      }
+    };
+
     changeMainContent();
   }, [screenIndex]);
 
   return (
-    <div>
-      <div className="main-cont">
+    <React.Fragment>
+      <div className="foreground">
         <Navigation variant="Back" screenIndex={screenIndex} changeScreenIndex={changeScreenIndex} />
 
-        <div className="main-area-cont">
-          <Header screens={screens} screenIndex={screenIndex} />
-          <motion.div ref={mainContentScope} className="main-content-cont" {...MAIN.opacityInitialAnimation}>
+        <div className="main">
+          <motion.div ref={mainContentScope} className="main__content-container" {...MAIN.opacityInitialAnimation}>
             {mainContent}
           </motion.div>
         </div>
@@ -101,7 +108,14 @@ export default function Main() {
         <Navigation variant="Next" screenIndex={screenIndex} changeScreenIndex={changeScreenIndex} />
       </div>
 
+      <div className="header-aligner">
+        <Header screens={screens} screenIndex={screenIndex} />
+        <div className="header-aligner__item">
+          <Experiences />
+        </div>
+      </div>
+
       <Background screens={screens} screenIndex={screenIndex} />
-    </div >
+    </React.Fragment>
   );
 }

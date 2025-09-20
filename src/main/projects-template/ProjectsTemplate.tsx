@@ -36,7 +36,7 @@ export default function ProjectsTemplate({ projects, changeProjectScreenBg }: Pr
   }
 
   return (
-    <motion.div ref={scope} className="main-content projects">
+    <motion.div ref={scope} className="proj">
       {
         mode === 0
           ? <ProjectSlider
