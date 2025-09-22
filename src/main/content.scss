@@ -87,16 +87,18 @@
   margin: 0.5vh 0 0 0;
 }
 
-.experience__badges-container {
-  margin: 0.5vh 0 0 0;
-  font-size: 0.8vh;
+.experience__languages {
+  width: fit-content;
+  border: 1px solid white;
+  border-radius: 0.25vh;
+  padding: 0.25vh;
+  margin-top: 0.25vh;
 }
 
 //  NOTE: Project
 
 .proj {
   @extend .content;
-  max-width: 80vh;
 }
 
 .proj__slider {
@@ -104,14 +106,13 @@
   width: fit-content;
   gap: 1.5vh;
   position: relative;
-  left: 50%;
   scrollbar-width: none;
 }
 
 .proj__slider__image {
   @extend .unselectable;
-  width: min(20vh, 350px);
-  height: min(35vh, 550px);
+  width: min(30vh, 412px);
+  height: min(40vh, 550px);
   object-fit: cover;
   flex-shrink: 0;
 }

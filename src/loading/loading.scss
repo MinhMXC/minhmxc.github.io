@@ -1,0 +1,11 @@
+@use "../_common.scss";
+
+.loading {
+  @extend .center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading__percentage {
+  color: white;
+}

@@ -12,8 +12,8 @@ export default function Experience({ experience }: ExperienceProps) {
         <h3><span className="accent-color">{experience.company}</span>, <i>{experience.position}</i></h3>
         <h3>{experience.duration}</h3>
       </div>
-      <div className="experience__badges-container">
-        <Badges badges={experience.badges} />
+      <div className="experience__languages">
+        {experience.badges.map(badge => badge.name).reduce((prev, cur) => prev + ", " + cur)}
       </div>
       <ul>
         {experience.desc.map(desc => <li key={desc}>{desc}</li>)}
