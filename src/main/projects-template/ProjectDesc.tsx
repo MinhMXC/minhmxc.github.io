@@ -9,7 +9,7 @@ interface ProjectDescProps {
 export default function ProjectDesc({ project, changeModeSlider }: ProjectDescProps) {
   return (
     <div className="proj__desc">
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="proj__desc__control">
         <svg
           className="proj__desc__back"
           focusable="false"

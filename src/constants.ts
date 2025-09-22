@@ -10,7 +10,7 @@ export const MAIN = {
     }
   },
   navigationAnimation: {
-    distance: 20,
+    distance: 32,
     transition: {
       duration: 0.25,
       easing: "easeOut" as Easing,

@@ -76,6 +76,7 @@ $nav-width: math.div(100% - 70%, 2);
 
 .nav__icon {
   @extend .unselectable;
+  width: max(2vh, 24px);
 }
 
 //  NOTE: Main
@@ -107,12 +108,14 @@ $nav-width: math.div(100% - 70%, 2);
 }
 
 .badges__badge {
+  @extend .center;
   flex-shrink: 0;
-  padding: 0.25em 0.5em;
+  padding: 0 0.5em;
   border-radius: 0.25em;
 }
 
 .badges__badge span {
   font-family: "Jetbrains Mono", monospace;
   font-weight: 600;
+  height: fit-content;
 }
