@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import StartAnimation from "./start-animation/StartAnimation";
 import Main from "./main/Main";
+import Loading from "./loading/Loading";
 
 import badAppleNarrow from "./assets/narrow/bad-apple.jpg";
 import calculatorNarrow from "./assets/narrow/calculator.jpg";
@@ -24,13 +25,16 @@ import forumWide from "./assets/wide/forum.jpg";
 import chip8Wide from "./assets/wide/chip8.jpg";
 import kungfuWide from "./assets/wide/kungfu.jpg";
 import chikaWide from "./assets/wide/chika.jpg";
-import Loading from "./loading/Loading";
+
+import backSvg from "./assets/back.svg";
+import nextSvg from "./assets/next.svg";
+
 
 export default function App() {
   const images = [
     badAppleNarrow, calculatorNarrow, chikaNarrow, nesNarrow, appNarrow, forumNarrow, chip8Narrow,
     meWide, amazonWide, freshCarsWide, calculatorWide, badAppleWide, appWide, zeldaWide, gdscWide,
-    nesWide, nusWide, forumWide, chip8Wide, kungfuWide, chikaWide
+    nesWide, nusWide, forumWide, chip8Wide, kungfuWide, chikaWide, backSvg, nextSvg
   ];
 
   const [loadPercentage, setLoadPercentage] = useState(0);
@@ -42,8 +46,8 @@ export default function App() {
         const img = new Image();
         img.src = image;
         img.onload = () => {
-          setLoadPercentage(loadPercentage + 100 / images.length);
-          setTimeout(() => resolve(image), 1000);
+          setLoadPercentage(prev => prev + 100 / images.length);
+          resolve(image);
         };
         img.onerror = (err) => reject(err);
       });
