@@ -1,19 +1,22 @@
+import { MpExperience } from "../../types";
+import Badges from "../common/Badges";
+
 interface ExperienceProps {
-  company: string;
-  position: string;
-  duration: string;
-  descs: string[];
+  experience: MpExperience;
 }
 
-export default function Experience({ company, position, duration, descs }: ExperienceProps) {
+export default function Experience({ experience }: ExperienceProps) {
   return (
     <div className="experience">
       <div className="experience__title">
-        <h3><span className="accent-color">{company}</span>, <i>{position}</i></h3>
-        <h3>{duration}</h3>
+        <h3><span className="accent-color">{experience.company}</span>, <i>{experience.position}</i></h3>
+        <h3>{experience.duration}</h3>
+      </div>
+      <div className="experience__badges-container">
+        <Badges badges={experience.badges} />
       </div>
       <ul>
-        {descs.map(desc => <li key={desc}>{desc}</li>)}
+        {experience.desc.map(desc => <li key={desc}>{desc}</li>)}
       </ul>
     </div>
   );

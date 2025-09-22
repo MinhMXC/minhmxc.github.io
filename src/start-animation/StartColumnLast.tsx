@@ -30,6 +30,7 @@ export default function StartColumnLast({ image1, image2, image3 }: StartColumnL
       {
         transitions.map(transition =>
           <StartImage
+            key={transition.src}
             initialY={vh * UP_INITIAL_Y_MULT}
             finalY={vh * (UP_FINAL_Y_MULT + -0.15)}
             duration={LAST_COLUMN_DURATION - transition.delay}

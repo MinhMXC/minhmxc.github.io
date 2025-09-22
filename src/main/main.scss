@@ -24,6 +24,13 @@ $nav-width: math.div(100% - 70%, 2);
   background-position-y: center;
 }
 
+.background__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
 //  NOTE: Header
 
 .header-aligner {
@@ -89,4 +96,23 @@ $nav-width: math.div(100% - 70%, 2);
 .main__content-container {
   @extend .center;
   width: 100%;
+}
+
+//  NOTE: Badges
+
+.badges {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.badges__badge {
+  flex-shrink: 0;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+}
+
+.badges__badge span {
+  font-family: "Jetbrains Mono", monospace;
+  font-weight: 600;
 }

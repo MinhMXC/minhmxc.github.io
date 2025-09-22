@@ -6,19 +6,19 @@ import StartColumnCenter from "./StartColumnCenter";
 import { SLIDE_DURATION, SLIDE_EASE, ZOOM_DELAY, ZOOM_DURATION } from "./constants";
 
 import meImage from "../assets/wide/me.jpg";
-import amazonImage from "../assets/wide/amazon.png";
-import freshCarsImage from "../assets/wide/fresh-cars.png";
-import calculatorImage from "../assets/wide/calculator.png";
-import badAppleImage from "../assets/wide/bad-apple.png";
-import appImage from "../assets/wide/app.png";
-import zeldaImage from "../assets/wide/zelda.png";
-import gdscImage from "../assets/wide/gdsc.png";
-import nesImage from "../assets/wide/nes.png";
-import nusImage from "../assets/wide/nus.png";
-import forumImage from "../assets/wide/forum.png";
-import chip8Image from "../assets/wide/chip8.png";
-import kungfuImage from "../assets/wide/kungfu.png";
-import chikaImage from "../assets/wide/chika.png";
+import amazonImage from "../assets/wide/amazon.jpg";
+import freshCarsImage from "../assets/wide/fresh-cars.jpg";
+import calculatorImage from "../assets/wide/calculator.jpg";
+import badAppleImage from "../assets/wide/bad-apple.jpg";
+import appImage from "../assets/wide/app.jpg";
+import zeldaImage from "../assets/wide/zelda.jpg";
+import gdscImage from "../assets/wide/gdsc.jpg";
+import nesImage from "../assets/wide/nes.jpg";
+import nusImage from "../assets/wide/nus.jpg";
+import forumImage from "../assets/wide/forum.jpg";
+import chip8Image from "../assets/wide/chip8.jpg";
+import kungfuImage from "../assets/wide/kungfu.jpg";
+import chikaImage from "../assets/wide/chika.jpg";
 
 interface StartAnimationProps {
   callback: () => void;

@@ -35,6 +35,12 @@ export const MAIN = {
       easing: "linear",
       fill: "forwards"
     } as KeyframeAnimationOptions
+  },
+  bgVideoAnimation: {
+    options: {
+      duration: 500,
+      fill: "forwards"
+    } as KeyframeAnimationOptions
   }
 };
 

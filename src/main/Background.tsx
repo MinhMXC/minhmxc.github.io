@@ -14,12 +14,12 @@ export default function Background({ screens, screenIndex }: BackgroundProps) {
   useEffect(() => {
     animate[prevScreenIndex]![1](
       animate[prevScreenIndex]![0].current,
-      { flexGrow: 0 },
+      { width: "0%" },
       { duration: 0.6, ease: "easeOut" }
     );
     animate[screenIndex]![1](
       animate[screenIndex]![0].current,
-      { flexGrow: 1 },
+      { width: "100%" },
       { duration: 0.3, ease: "easeOut" }
     );
     setPrevScreenIndex(screenIndex);
@@ -35,10 +35,12 @@ export default function Background({ screens, screenIndex }: BackgroundProps) {
             ref={animate[index]![0]}
             className="background__image"
             style={{ backgroundImage: `url(${screen.backgroundImg})` }}
-            initial={{ flexGrow: index === 0 ? 1 : 0 }}
-          />
+            initial={{ width: index === 0 ? "100%" : "0%" }}
+          >
+            <video id={`${screen.title}-video`} className="background__video" autoPlay />
+          </motion.div>
         )
       }
-    </div >
+    </div>
   );
 }

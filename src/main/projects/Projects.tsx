@@ -1,26 +1,36 @@
 import { MpProject } from "../../types";
 import ProjectsTemplate from "../projects-template/ProjectsTemplate";
 
-import nesNarrow from "../../assets/narrow/nes.png";
-import appNarrow from "../../assets/narrow/app.png";
-import forumNarrow from "../../assets/narrow/forum.png";
-import chip8Narrow from "../../assets/narrow/chip8.png";
+import nesNarrow from "../../assets/narrow/nes.jpg";
+import appNarrow from "../../assets/narrow/app.jpg";
+import forumNarrow from "../../assets/narrow/forum.jpg";
+import chip8Narrow from "../../assets/narrow/chip8.jpg";
 
-import nesWide from "../../assets/wide/nes.png";
-import appWide from "../../assets/wide/app.png";
-import forumWide from "../../assets/wide/forum.png";
-import chip8Wide from "../../assets/wide/chip8.png";
+import nesWide from "../../assets/wide/nes.jpg";
+import appWide from "../../assets/wide/app.jpg";
+import forumWide from "../../assets/wide/forum.jpg";
+import chip8Wide from "../../assets/wide/chip8.jpg";
+
+import nesVideo from "../../assets/videos/nes.mp4";
+import chip8Video from "../../assets/videos/chip8.mp4";
+
+import {
+  ANDROID, CATCH2, CMAKE, CPP, DOCKER, GRADLE, JETPACK,
+  KOTLIN, NODE, POSTGRES, RAIL, REACT, RUBY, SDL2, SQLITE, STEAM, TYPESCRIPT
+} from "../projects-template/badges";
 
 interface ProjectsProps {
-  changeProjectScreenBg: (src: string) => void;
+  changeScreenBg: (project: MpProject) => void;
 }
 
-export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
+export default function Projects({ changeScreenBg }: ProjectsProps) {
   const projects: MpProject[] = [
     {
       title: "NES Emulator",
       narrowImg: nesNarrow,
       wideImg: nesWide,
+      video: nesVideo,
+      badges: [CPP, SDL2, CATCH2, CMAKE],
       desc: (
         <>
           <p>
@@ -35,7 +45,8 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
             the CPU and GPU to get the visuals and audio to work perfectly.
           </p>
           <p>
-            Utilising the <b>Catch2</b> library, I made sure my emulator accurately follow behaviours
+            Utilising the <b>Catch2</b> library and Test Driven Development,
+            I made sure my emulator accurately follow behaviours
             of the original console. At the end, I got a cycle-accurate emulator,
             capable of running <b>100s</b> of retro games at <b>400FPS++</b>.
           </p>
@@ -46,6 +57,7 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       title: "Steam Achievement Manager",
       narrowImg: appNarrow,
       wideImg: appWide,
+      badges: [ANDROID, KOTLIN, JETPACK, SQLITE, GRADLE, STEAM],
       desc: (
         <>
           <p>
@@ -68,6 +80,7 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       title: "Anarchy Forum",
       narrowImg: forumNarrow,
       wideImg: forumWide,
+      badges: [REACT, TYPESCRIPT, RUBY, RAIL, POSTGRES, DOCKER, NODE],
       desc: (
         <>
           <p>
@@ -77,8 +90,9 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
             a complete forum where users can post, comment, and engage with a community.
           </p>
           <p>
-            I chose <b>React</b> for the front end to create a dynamic and responsive user experience,
-            and <b>Ruby on Rails</b> for the back end to handle data management and API interactions.
+            I chose <b>React</b> and <b>Typescipt</b> for the front end to create a dynamic and
+            responsive user experience, and <b>Ruby on Rails</b> for the back end to handle
+            data management and API interactions.
             The build process gave me the technical overview of a scalable web application,
             from implementing secure user authentication using <b>JSON Web Token</b> to containerizing the
             entire application with <b>Docker</b> for seamless deployment.
@@ -90,6 +104,8 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
       title: "Chip8 Emulator",
       narrowImg: chip8Narrow,
       wideImg: chip8Wide,
+      video: chip8Video,
+      badges: [CPP, SDL2, CATCH2, CMAKE],
       desc: (
         <>
           <p>
@@ -111,6 +127,6 @@ export default function Projects({ changeProjectScreenBg }: ProjectsProps) {
   ];
 
   return (
-    <ProjectsTemplate projects={projects} changeProjectScreenBg={changeProjectScreenBg} />
+    <ProjectsTemplate projects={projects} changeScreenBg={changeScreenBg} />
   );
 }

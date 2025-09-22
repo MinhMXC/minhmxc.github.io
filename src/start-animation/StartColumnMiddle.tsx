@@ -35,6 +35,7 @@ export default function StartColumnMiddle({ image1, image2, image3, image4 }: St
       {
         transitions.map(transition =>
           <StartImage
+            key={transition.src}
             initialY={vh * DOWN_INITIAL_Y_MULT}
             finalY={vh * DOWN_FINAL_Y_MULT}
             duration={MIDDLE_DURATION - transition.delay}

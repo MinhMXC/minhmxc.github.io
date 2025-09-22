@@ -7,12 +7,14 @@ import { PROJECT } from "../../constants";
 
 interface ProjectsTemplateProps {
   projects: MpProject[];
-  changeProjectScreenBg: (src: string) => void;
+  changeScreenBg: (project: MpProject) => void;
 }
 
-export default function ProjectsTemplate({ projects, changeProjectScreenBg }: ProjectsTemplateProps) {
+export default function ProjectsTemplate({ projects, changeScreenBg }: ProjectsTemplateProps) {
   const [mode, setMode] = useState(0);
-  const [project, setProject] = useState<MpProject>({ title: "DEFAULT", narrowImg: "", wideImg: "", desc: "" });
+  const [project, setProject] = useState<MpProject>(
+    { title: "DEFAULT", narrowImg: "", wideImg: "", desc: "", badges: [] }
+  );
   const percentage = useRef(0);
   const [scope, animate] = useAnimate();
 
@@ -21,7 +23,7 @@ export default function ProjectsTemplate({ projects, changeProjectScreenBg }: Pr
       return;
     }
 
-    changeProjectScreenBg(project.wideImg);
+    changeScreenBg(project);
     await animate(scope.current, { opacity: 0 }, PROJECT.opacityAnimation.transition);
     setMode(1);
     setProject(project);

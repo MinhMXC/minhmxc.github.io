@@ -1,24 +1,32 @@
 import { MpProject } from "../../types";
 import ProjectsTemplate from "../projects-template/ProjectsTemplate";
 
-import badAppleNarrow from "../../assets/narrow/bad-apple.png";
-import calculatorNarrow from "../../assets/narrow/calculator.png";
-import chikaNarrow from "../../assets/narrow/chika.png";
+import badAppleNarrow from "../../assets/narrow/bad-apple.jpg";
+import calculatorNarrow from "../../assets/narrow/calculator.jpg";
+import chikaNarrow from "../../assets/narrow/chika.jpg";
 
-import badAppleWide from "../../assets/wide/bad-apple.png";
-import calculatorWide from "../../assets/wide/calculator.png";
-import chikaWide from "../../assets/wide/chika.png";
+import badAppleWide from "../../assets/wide/bad-apple.jpg";
+import calculatorWide from "../../assets/wide/calculator.jpg";
+import chikaWide from "../../assets/wide/chika.jpg";
+
+import badAppleVideo from "../../assets/videos/bad-apple.mp4";
+import minecraftVideo from "../../assets/videos/minecraft.mp4";
+import chikaVideo from "../../assets/videos/chika-dance.mp4";
+
+import { CSHARP, DESMOS, MINECRAFT, PYTHON, REDSTONE, SOURCE, WINDOWS_FORMS } from "../projects-template/badges";
 
 interface FunProjectsProps {
-  changeProjectScreenBg: (src: string) => void;
+  changeScreenBg: (project: MpProject) => void;
 }
 
-export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps) {
+export default function FunProjects({ changeScreenBg }: FunProjectsProps) {
   const projects: MpProject[] = [
     {
       title: "Bad Apple on Source Academy",
       narrowImg: badAppleNarrow,
       wideImg: badAppleWide,
+      video: badAppleVideo,
+      badges: [PYTHON, SOURCE],
       desc: (
         <>
           <p>
@@ -41,6 +49,8 @@ export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps)
       title: "Minecraft Calculator",
       narrowImg: calculatorNarrow,
       wideImg: calculatorWide,
+      video: minecraftVideo,
+      badges: [MINECRAFT, REDSTONE],
       desc: (
         <>
           <p>
@@ -58,6 +68,8 @@ export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps)
       title: "Chika Dance on Desmos",
       narrowImg: chikaNarrow,
       wideImg: chikaWide,
+      video: chikaVideo,
+      badges: [CSHARP, WINDOWS_FORMS, DESMOS],
       desc: (
         <>
           <p>
@@ -77,6 +89,6 @@ export default function FunProjects({ changeProjectScreenBg }: FunProjectsProps)
   ];
 
   return (
-    <ProjectsTemplate projects={projects} changeProjectScreenBg={changeProjectScreenBg} />
+    <ProjectsTemplate projects={projects} changeScreenBg={changeScreenBg} />
   );
 }

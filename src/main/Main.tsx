@@ -5,33 +5,57 @@ import Header from "./Header";
 import About from "./about/About";
 import Education from "./education/Education";
 import Experiences from "./experiences/Experiences";
-import { MpScreen } from "../types";
+import { MpProject, MpScreen } from "../types";
 import Projects from "./projects/Projects";
 import FunProjects from "./fun-projects/FunProjects";
 import { motion, useAnimate } from "motion/react";
 
 import meImage from "../assets/wide/me.jpg";
-import nusImage from "../assets/wide/nus.png";
-import amazonImage from "../assets/wide/amazon.png";
-import nesImage from "../assets/wide/nes.png";
-import badAppleImage from "../assets/wide/bad-apple.png";
+import nusImage from "../assets/wide/nus.jpg";
+import amazonImage from "../assets/wide/amazon.jpg";
+import nesImage from "../assets/wide/nes.jpg";
+import badAppleImage from "../assets/wide/bad-apple.jpg";
 
 import { MAIN } from "../constants";
 
 export default function Main() {
-  function getChangeScreenBg(id: string) {
-    return (newSrc: string) => {
-      const url = `url("${newSrc}")`;
-      const projectsBg = document.getElementById(id);
-      if (projectsBg === null || projectsBg.style.backgroundImage === url) {
-        return;
+  function getChangeScreenBg(title: string) {
+    return (project: MpProject) => {
+      const bgUrl = `url("${project.wideImg}")`;
+      const video = document.getElementById(`${title}-video`) as HTMLVideoElement;
+      const background = document.getElementById(`${title}-bg`) as HTMLDivElement;
+
+      // If background is different, change it
+      if (background.style.backgroundImage !== bgUrl) {
+        const dimPrevBackground = background.animate({ opacity: 0 }, MAIN.bgChangeAnimation.options);
+        dimPrevBackground.onfinish = () => {
+          background.style.backgroundImage = bgUrl;
+          background.animate({ opacity: 1 }, MAIN.bgChangeAnimation.options);
+        };
       }
 
-      const duration = MAIN.bgChangeAnimation.options.duration as number;
-      projectsBg.animate({ opacity: 0 }, { ...MAIN.bgChangeAnimation.options });
-      projectsBg.animate({ backgroundImage: url }, { duration: 1, delay: duration, fill: "forwards" });
-      projectsBg.animate({ opacity: 1 }, { delay: duration, ...MAIN.bgChangeAnimation.options });
-      setTimeout(() => projectsBg.style.backgroundImage = url, duration * 2);
+      // If there was a video playing, dim it and stop it
+      const dimPrevVideo = video.animate({ opacity: 0 }, MAIN.bgChangeAnimation.options);
+
+      dimPrevVideo.onfinish = () => {
+        video.src = "";
+
+        if (project.video === undefined) {
+          return;
+        }
+
+        video.src = project.video;
+        const showNextVideo = video.animate({ opacity: 1 }, { delay: 1000, ...MAIN.bgVideoAnimation.options });
+        showNextVideo.onfinish = () => {
+          background.style.backgroundImage = "";
+        };
+        video.load();
+        video.play();
+        video.onended = () => {
+          background.style.backgroundImage = bgUrl;
+          video.animate({ opacity: 0 }, MAIN.bgVideoAnimation.options);
+        };
+      };
     };
   }
 
@@ -54,12 +78,12 @@ export default function Main() {
     {
       title: "Projects",
       backgroundImg: nesImage,
-      content: <Projects changeProjectScreenBg={getChangeScreenBg("Projects-bg")} />,
+      content: <Projects changeScreenBg={getChangeScreenBg("Projects")} />,
     },
     {
       title: "Fun Projects",
       backgroundImg: badAppleImage,
-      content: <FunProjects changeProjectScreenBg={getChangeScreenBg("Fun Projects-bg")} />,
+      content: <FunProjects changeScreenBg={getChangeScreenBg("Fun Projects")} />,
     },
   ];
 
@@ -67,7 +91,6 @@ export default function Main() {
   const [mainContent, setMainContent] = useState(screens[screenIndex]!.content);
   const [mainContentScope, animateMainContent] = useAnimate();
 
-  // TODO: Use arrow button to navigate
   function changeScreenIndex(destScreenIndex: number): boolean {
     if (destScreenIndex < 0 || destScreenIndex >= screens.length) {
       return false;

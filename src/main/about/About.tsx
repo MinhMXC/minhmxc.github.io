@@ -9,12 +9,12 @@ export default function About() {
         Hello, I'm Minh.
       </p>
       <p>
-        I'm a passionate and curious computer science enthusiast.
-        So far, my journey has led me to explore various areas,
+        I'm a efficiency-oriented and result-driven Computer Science undergraduate.
+        I'm always eager to learn and gain new experiences in the ever-expanding world of technology.
+        So far, I have explored various areas,
         including <b>Android</b> mobile application development,
         full-stack <b>web</b> applications,
         and even video game console <b>emulators</b>.
-        I'm always eager to learn and gain new experiences in the ever-expanding world of technology.
       </p>
       <p>
         Most recently, I completed an internship at <b>Amazon Lab126</b>,

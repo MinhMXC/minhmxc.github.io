@@ -8,7 +8,7 @@
   text-align: justify;
   padding: 1.5vh;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 0.5vh;
   box-sizing: border-box;
 }
@@ -87,10 +87,16 @@
   margin: 0.5vh 0 0 0;
 }
 
+.experience__badges-container {
+  margin: 0.5vh 0 0 0;
+  font-size: 0.8vh;
+}
+
 //  NOTE: Project
 
 .proj {
   @extend .content;
+  max-width: 80vh;
 }
 
 .proj__slider {
@@ -117,6 +123,7 @@
 }
 
 .proj__desc__title {
+  @extend .accent-color;
   margin: 1vh 0 0.75vh 0;
 }
 
