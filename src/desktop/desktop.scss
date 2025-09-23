@@ -1,0 +1,346 @@
+@use 'sass:math';
+@use '../_common.scss';
+
+$main-width: 70%;
+$nav-width: math.div(100% - 70%, 2);
+
+
+
+
+
+//  NOTE: LOADING
+
+.loading {
+  @extend .center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading__percentage {
+  color: white;
+}
+
+
+
+
+
+//  NOTE: START ANIMATION (sanim for short)
+
+.sanim {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 5vw;
+  overflow: hidden;
+}
+
+.sanim__image {
+  width: 20vw;
+  height: 30vh;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center;
+}
+
+.sanim__column {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 5vh;
+}
+
+.sanim__column>* {
+  flex-shrink: 0;
+}
+
+.sanim__center-image {
+  @extend .sanim__image;
+  visibility: hidden;
+}
+
+//  NOTE: Center Image
+
+.center-image {
+  @extend .center;
+  @extend .sanim;
+  position: absolute;
+}
+
+.center-image__image {
+  @extend .sanim__image;
+  z-index: 999;
+}
+
+
+
+
+
+//  NOTE: MAIN
+
+.foreground {
+  @extend .center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.main {
+  @extend .center;
+  width: $main-width;
+}
+
+.main__content-container {
+  @extend .center;
+  width: 100%;
+}
+
+//  NOTE: Background
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  opacity: 0.5;
+}
+
+.background__image {
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.background__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+//  NOTE: Header
+
+.header-aligner {
+  @extend .center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.header-aligner__item {
+  width: $main-width;
+  visibility: hidden;
+}
+
+.header {
+  @extend .center;
+  position: relative;
+  bottom: 4%;
+  overflow: hidden;
+}
+
+.header__text {
+  font-size: max(3.2vh, 44px);
+  color: white;
+  font-weight: 500;
+}
+
+//  NOTE: Navigation
+
+.nav {
+  @extend .center;
+  width: $nav-width;
+  height: 100%;
+}
+
+.nav__anim-container {
+  overflow: hidden;
+}
+
+.nav__icon {
+  @extend .unselectable;
+  width: max(2vh, 24px);
+}
+
+//  NOTE: Badges
+
+.badges {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.badges__badge {
+  @extend .center;
+  flex-shrink: 0;
+  padding: 0 0.5em;
+  border-radius: 0.25em;
+}
+
+.badges__badge span {
+  font-family: "Jetbrains Mono", monospace;
+  font-weight: 600;
+  height: fit-content;
+}
+
+
+
+
+
+//  NOTE: CONTENT
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  color: white;
+  font-size: max(1.1vh, 15px);
+  text-align: justify;
+  padding: 1.5vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5vh;
+  box-sizing: border-box;
+}
+
+@media(max-width: 2000px) {
+  .content {
+    max-width: 1000px;
+  }
+}
+
+//  NOTE: About
+
+.about {
+  @extend .content;
+}
+
+.about__title {
+  margin: 0;
+}
+
+.about p {
+  margin-bottom: 0;
+}
+
+//  NOTE: Education
+
+.education {
+  @extend .content;
+}
+
+.education__title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.education__title-container h2 {
+  margin: 0;
+}
+
+.education__section-title {
+  margin: 1.2vh 0 0 0;
+}
+
+.education ul {
+  margin: 0.5vh 0 0 0;
+}
+
+.coursework {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.coursework__title {
+  margin: 0.8vh 0 0 0;
+}
+
+//  NOTE: Experience
+
+.experiences {
+  @extend .content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+}
+
+.experience__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience__title h3 {
+  margin: 0;
+}
+
+.experience ul {
+  margin: 0.6vh 0 0 0;
+}
+
+.experience__languages {
+  width: fit-content;
+  border: 1px solid white;
+  border-radius: 0.25vh;
+  padding: 0.25vh;
+  margin-top: 0.25vh;
+}
+
+//  NOTE: Project
+
+.proj {
+  @extend .content;
+}
+
+.proj__slider {
+  display: flex;
+  width: fit-content;
+  gap: 1.5vh;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.proj__slider__image {
+  @extend .unselectable;
+  width: min(30vh, 412px);
+  height: min(40vh, 550px);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.proj__desc__control {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.proj__desc__back {
+  fill: white;
+  width: 100%;
+  height: 24px;
+  min-width: 28px;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.proj__desc__title {
+  @extend .accent-color;
+  margin: 1vh 0 0.75vh 0;
+}
+
+.proj__desc__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.proj__desc__content p {
+  margin: 0;
+}

@@ -1,7 +1,5 @@
-@use "./loading/loading.scss";
-@use './start-animation/sanim.scss';
-@use './main/main.scss';
-@use './main/content.scss';
+@use './desktop/desktop.scss';
+@use './mobile/mobile.scss';
 
 html {
   font-family: "Noto Sans", "Arial", sans-serif;

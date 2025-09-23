@@ -1,5 +1,23 @@
 import { ReactNode } from "react";
 
+export interface MpAbout {
+  title: ReactNode;
+  desc: string[];
+}
+
+export interface MpCourseworkSection {
+  title: string;
+  courses: string[];
+}
+
+export interface MpUniversity {
+  name: string;
+  period: string;
+  major: ReactNode;
+  awards: string[];
+  coursework: MpCourseworkSection[];
+}
+
 export interface MpBadge {
   name: string;
   color: string;
