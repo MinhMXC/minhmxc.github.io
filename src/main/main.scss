@@ -52,12 +52,12 @@ $nav-width: math.div(100% - 70%, 2);
 .header {
   @extend .center;
   position: relative;
-  bottom: 6%;
+  bottom: 4%;
   overflow: hidden;
 }
 
 .header__text {
-  font-size: max(3.2vh, 40px);
+  font-size: max(3.2vh, 44px);
   color: white;
   font-weight: 500;
 }
