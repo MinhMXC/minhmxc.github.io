@@ -39,10 +39,13 @@ export default function ProjectsTemplate({ projects, title }: ProjectsTemplatePr
   }
 
   return (
-    <Content bgImage={projects[index]!.wideImg} title={title}>
-      <NavGroup backOnClick={back} nextOnClick={next} />
+    <Content
+      bgImage={projects[index]!.wideImg}
+      title={title}
+      footer={<NavGroup backOnClick={back} nextOnClick={next} />}
+    >
       <div ref={contentScope} className="mb-projects">
-        <h3 className="mb-projects__title accent-color">{project.title}</h3>
+        <h2 className="mb-projects__title accent-color">{project.title}</h2>
         <div className="mb-projects__badges">
           {project.badges.map(badge => <Badge badge={badge} />)}
         </div>

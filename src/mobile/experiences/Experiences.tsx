@@ -5,6 +5,7 @@ import Content from "../Content";
 import { EXPERIENCES } from "../../contents";
 import NavGroup from "../NavGroup";
 import { OPACITY } from "../animations";
+import Badge from "../../common/Badge";
 
 export default function Experiences() {
   const [index, setIndex] = useState(0);
@@ -33,14 +34,17 @@ export default function Experiences() {
   }
 
   return (
-    <Content bgImage={EXPERIENCES[index]!.wideImg} title="Experiences">
-      <NavGroup backOnClick={back} nextOnClick={next} />
+    <Content
+      bgImage={EXPERIENCES[index]!.wideImg}
+      title="Experiences"
+      footer={<NavGroup backOnClick={back} nextOnClick={next} />}
+    >
       <div ref={contentScope} className="mb-experience">
-        <h3 className="mb-experience__company accent-color">{experience.company}</h3>
+        <h2 className="mb-experience__company accent-color">{experience.company}</h2>
         <h3 className="mb-experience__position"><i>{experience.position}</i></h3>
         <span className="mb-experience__period">{experience.duration}</span>
-        <div className="mb-experience__languages">
-          {experience.badges.map(badge => badge.name).reduce((prev, cur) => prev + ", " + cur)}
+        <div className="mb-experience__badges">
+          {experience.badges.map(badge => <Badge badge={badge} />)}
         </div>
         <ul>
           {experience.desc.map(desc => <li key={desc}>{desc}</li>)}

@@ -6,7 +6,7 @@ export default function About() {
     <Content>
       <div className="mb-about">
         <div>
-          <h2>{ABOUT.title}</h2>
+          <h1>{ABOUT.title}</h1>
           <div style={{ textAlign: "justify" }}>
             {ABOUT.desc}
           </div>

@@ -5,10 +5,11 @@ import { OPACITY } from "./animations";
 interface ContentProps {
   bgImage?: string;
   title?: string;
+  footer?: ReactNode;
   children: ReactNode;
 }
 
-export default function Content({ bgImage, title, children }: ContentProps) {
+export default function Content({ bgImage, title, footer, children }: ContentProps) {
   const [img, setImg] = useState(bgImage);
   const [imageScope, animate] = useAnimate();
 
@@ -32,7 +33,12 @@ export default function Content({ bgImage, title, children }: ContentProps) {
       <div className="mb-content__fade"><img /></div>
       <div className="mb-content__main">
         <h1 className="mb-content__header">{title}</h1>
-        {children}
+        <div className="mb-content__body">
+          {children}
+        </div>
+        <div className="mb-content__footer">
+          {footer}
+        </div>
       </div>
     </div>
   );
