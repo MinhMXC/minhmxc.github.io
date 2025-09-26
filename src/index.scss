@@ -1,7 +1,7 @@
 @use './desktop/desktop.scss';
 @use './mobile/mobile.scss';
 
-@import './_common.scss';
+@use './_common.scss';
 
 html {
   font-family: "Noto Sans", "Arial", sans-serif;
@@ -13,7 +13,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $bgColor;
+  background-color: common.$bgColor;
 }
 
 h2 {
