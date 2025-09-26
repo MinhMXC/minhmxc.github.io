@@ -40,20 +40,20 @@ export const ABOUT: MpAbout = {
     <span className="accent-color"> Technology </span> Enthusiast;
     Problem<span className="accent-color"> Solver</span>
   </>,
-  desc: [
-    "Hello, I'm Minh.",
-    `
-      I'm a efficiency-oriented and result-driven Computer Science undergraduate.
-      I'm always eager to learn and gain new experiences in the ever-expanding world of technology.
-      So far, I have explored various areas, including Android mobile application development,
-      full-stack web applications, and even video game console emulators.
-    `,
-    `
+  desc: <>
+    <p>Hey, my name <u>Quang Minh</u>.</p>
+    <p>
+      I'm a <b>efficiency-oriented</b> and <b>result-driven</b> Computer Science undergraduate,
+      always eager to learn and gain new experiences in the ever-expanding world of technology.
+      So far, I have development experience in various areas, including Android <u>mobile</u> application,
+      full-stack <u>web</u> applications, and even video game console <u>emulators</u>.
+    </p>
+    <p>
       Most recently, I completed an internship at Amazon Lab126,
-      where I had the rare opportunity to work on exciting new Amazon products.
-    `,
-    "Looking forward to any challenges!"
-  ]
+      where I had the rare opportunity to work on exciting upcoming Amazon products.
+    </p>
+    <p>Looking forward to any challenges!</p>
+  </>
 };
 
 export const EDUCATION: MpUniversity = {
@@ -105,6 +105,7 @@ export const EXPERIENCES: MpExperience[] = [
     company: "Amazon Lab126",
     position: "Manufacturing Test Engineer Intern",
     duration: "May - Aug 2025",
+    wideImg: amazonWide,
     badges: [Badge.REACT, Badge.TYPESCRIPT, Badge.PYTHON],
     desc: [
       "Oversaw development of a new module to visualise text-based testing logs with React and Typescript, " +
@@ -119,6 +120,7 @@ export const EXPERIENCES: MpExperience[] = [
     company: "Fresh Cars",
     position: "Software Engineer Intern",
     duration: "May - Aug 2024",
+    wideImg: freshCarsWide,
     badges: [Badge.REACT, Badge.JAVASCRIPT, Badge.FLUTTER, Badge.FIREBASE, Badge.GOOGLE_CLOUD],
     desc: [
       "Led the development of the company new workshop module, leveraging Javascript, React, and Firebase, " +
@@ -133,6 +135,7 @@ export const EXPERIENCES: MpExperience[] = [
     company: "National University of Singapore",
     position: "Teaching Assistant",
     duration: "Aug 2024 - Present",
+    wideImg: nusWide,
     badges: [Badge.JAVASCRIPT, Badge.JAVA],
     desc: [
       "Taught foundational Java and Javascript programming courses for undergraduate students, " +

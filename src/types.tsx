@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export interface MpAbout {
   title: ReactNode;
-  desc: string[];
+  desc: ReactNode;
 }
 
 export interface MpCourseworkSection {
@@ -27,6 +27,7 @@ export interface MpExperience {
   company: string;
   position: string;
   duration: string;
+  wideImg: string;
   badges: MpBadge[];
   desc: string[];
 }

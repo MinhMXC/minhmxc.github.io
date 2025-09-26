@@ -1,5 +1,5 @@
+import Badge from "../../../common/Badge";
 import { MpProject } from "../../../types";
-import Badges from "../common/Badges";
 
 interface ProjectDescProps {
   project: MpProject;
@@ -18,7 +18,9 @@ export default function ProjectDesc({ project, changeModeSlider }: ProjectDescPr
           <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z" />
         </svg>
 
-        <Badges badges={project.badges} />
+        <div className="proj__desc__badges">
+          {project.badges.map(badge => <Badge badge={badge} />)}
+        </div>
       </div>
       <h3 className="proj__desc__title">{project.title}</h3>
       <div className="proj__desc__content">

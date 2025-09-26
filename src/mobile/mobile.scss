@@ -1,0 +1,138 @@
+@use '../_common.scss';
+
+.mb {
+  font-size: 15px;
+}
+
+.mb-content {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.mb-content__image {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.15;
+}
+
+.mb-content__fade {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(common.$bgColor 0%, transparent 5%, transparent 95%, common.$bgColor 100%)
+}
+
+.mb-content__header {
+  margin-top: 0;
+  text-align: center;
+}
+
+.mb-content__main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15vw 5vw;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+
+//  NOTE: NAVIGATION
+
+.mb-nav-group {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  gap: 4%
+}
+
+.mb-nav {
+  @extend .center;
+  @extend .unselectable;
+  flex-grow: 1;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 1% 0;
+}
+
+
+
+
+//  NOTE: CONTENTS
+
+
+//  NOTE: ABOUT
+
+.mb-about h2 {
+  line-height: 36px;
+}
+
+
+//  NOTE: EDUCATION
+
+.mb-education h2 {
+  margin-bottom: 2%;
+}
+
+.mb-education__section-title {
+  margin: 4% 0 0 0;
+}
+
+.mb-education ul {
+  margin: 1% 0 0 0;
+}
+
+.mb-coursework__title {
+  margin: 2% 0 0 0;
+}
+
+
+//  NOTE: EXPERIENCES
+
+.mb-experience {
+  margin-top: 8%;
+}
+
+.mb-experience__position {
+  font-weight: 550;
+}
+
+.mb-experience__languages {
+  width: fit-content;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-top: 6%;
+}
+
+.mb-experience ul {
+  margin-top: 4%;
+}
+
+.mb-experience li {
+  margin-top: 2%;
+}
+
+//  NOTE: PROJECTS
+
+.mb-projects {
+  margin-top: 8%;
+}
+
+.mb-projects__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4% 0 0 0;
+}
+
+.mb-projects__content {
+  margin: 4% 0 0 0;
+}

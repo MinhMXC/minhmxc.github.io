@@ -6,7 +6,7 @@ export default function About() {
       <h2 className="about__title">
         {ABOUT.title}
       </h2>
-      {ABOUT.desc.map(d => <p key={d}>{d}</p>)}
+      {ABOUT.desc}
     </div>
   );
 }
