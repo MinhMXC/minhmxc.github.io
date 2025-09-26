@@ -18,6 +18,8 @@ export default function ProjectsTemplate({ projects, title }: ProjectsTemplatePr
   const [contentScope, animate] = useAnimate();
 
   async function changeIndex(newIndex: number) {
+    const temp = new Image();
+    temp.src = projects[newIndex]!.wideImg;
     setIndex(newIndex);
     await animate(contentScope.current, { opacity: 0 }, OPACITY.transition);
     setProject(projects[newIndex]!);

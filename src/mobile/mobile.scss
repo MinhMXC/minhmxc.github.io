@@ -25,7 +25,7 @@
   position: absolute;
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(common.$bgColor 0%, transparent 5%, transparent 95%, common.$bgColor 100%)
+  background: linear-gradient(common.$bgColor 0%, transparent 8%, transparent 92%, common.$bgColor 100%)
 }
 
 .mb-content__main {
@@ -41,12 +41,12 @@
 .mb-content__header {
   @extend .center;
   margin: 0;
-  height: 10%;
+  height: 12%;
   text-align: center;
 }
 
 .mb-content__body {
-  height: 80%;
+  height: 78%;
 }
 
 .mb-content__footer {

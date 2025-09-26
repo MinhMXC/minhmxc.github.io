@@ -17,7 +17,7 @@ export default function Content({ bgImage, title, footer, children }: ContentPro
     if (newImage !== img) {
       await animate(imageScope.current, { opacity: 0 }, OPACITY.transition);
       setImg(newImage);
-      animate(imageScope.current, { opacity: 0.1 }, OPACITY.transition);
+      animate(imageScope.current, { opacity: 0.25 }, OPACITY.transition);
     };
   }
 

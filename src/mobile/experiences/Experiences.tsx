@@ -13,6 +13,8 @@ export default function Experiences() {
   const [contentScope, animate] = useAnimate();
 
   async function changeIndex(newIndex: number) {
+    const temp = new Image();
+    temp.src = EXPERIENCES[newIndex]!.wideImg;
     setIndex(newIndex);
     await animate(contentScope.current, { opacity: 0 }, OPACITY.transition);
     setExperience(EXPERIENCES[newIndex]!);

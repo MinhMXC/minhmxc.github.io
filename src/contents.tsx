@@ -41,7 +41,7 @@ export const ABOUT: MpAbout = {
     Problem<span className="accent-color"> Solver</span>
   </>,
   desc: <>
-    <p>Hey, my name <u>Quang Minh</u>.</p>
+    <h3>Hey, I'm Quang Minh.</h3>
     <p>
       I'm a <b>efficiency-oriented</b> and <b>result-driven</b> Computer Science undergraduate,
       always eager to learn and gain new experiences in the ever-expanding world of technology.
