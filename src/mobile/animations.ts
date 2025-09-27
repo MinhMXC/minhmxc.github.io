@@ -1,5 +1,5 @@
 export const OPACITY = {
   transition: {
-    duration: 0.4
+    duration: 0.3
   }
 };
