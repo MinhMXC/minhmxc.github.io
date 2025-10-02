@@ -107,14 +107,21 @@ export const EXPERIENCES: MpExperience[] = [
     duration: "May - Aug 2025",
     wideImg: amazonWide,
     badges: [Badge.REACT, Badge.TYPESCRIPT, Badge.PYTHON],
-    desc: [
-      "Oversaw development of a new module to visualise text-based testing logs with React and Typescript, " +
-      "erasing tedious debugging processes and improving test development and failure analysis efficiency.",
-      "Optimised algorithm and rendering performance, allowing for large 50 MB+ log files to be displayed " +
-      "in less than 300ms and guaranteeing responsive user interface, delivering superb user experience.",
-      "Deep-dived testing related issues for new upcoming devices by analysing data and identifying trends using Python, " +
-      "ensuring 99% of defective devices are correctly identified."
-    ]
+    desc: <>
+      <li>
+        Oversaw development of a new module to visualise text-based testing logs with <u>React</u> and <u>Typescript</u>,
+        erasing tedious debugging processes and improving test development and failure analysis efficiency.
+      </li>
+      <li>
+        Optimised algorithm and rendering performance, allowing for large 50 MB+ log files to be displayed
+        in less than 300ms and guaranteeing responsive user interface and delivering superb user experience.
+      </li>
+      <li>
+        Deep-dived testing related issues for new upcoming devices by analysing data and identifying trends
+        using <u>Python</u>, helping to ensure 99% of defective devices are correctly identified.
+      </li>
+
+    </>
   },
   {
     company: "Fresh Cars",
@@ -122,14 +129,22 @@ export const EXPERIENCES: MpExperience[] = [
     duration: "May - Aug 2024",
     wideImg: freshCarsWide,
     badges: [Badge.REACT, Badge.JAVASCRIPT, Badge.FLUTTER, Badge.FIREBASE, Badge.GOOGLE_CLOUD],
-    desc: [
-      "Led the development of the company new workshop module, leveraging Javascript, React, and Firebase, " +
-      "connecting repairmen with salesperson and 100+ customers and removing verbose coordination processes.",
-      "Modernised company's mobile application UI/UX by cooperating with designers and updating the codebase " +
-      "from Flutter 3.3.10 to 3.19.6, improving customers satisfaction and experience.",
-      "Integrated a new payment system on company’s app with HitPay and Shell API using Flutter, Javascript, " +
-      "Firebase and Google Cloud Platform, allowing customers to easily pay gas and rental fee through the app."
-    ]
+    desc: <>
+      <li>
+        Led the development of the company new workshop module to connect repairmen with salespeople
+        and 100+ customers, leveraging <u>Javascript</u>, <u>React</u>, and <u>Firebase</u>, removing
+        time-consuming processes.
+      </li>
+      <li>
+        Modernised company's mobile application UI/UX by cooperating with designers and updating the codebase
+        from <u>Flutter</u> 3.3.10 to 3.19.6, improving customers satisfaction and experience.
+      </li>
+      <li>
+        Integrated a payment system on company’s app with HitPay and Shell API using <u>Flutter</u>,&nbsp;
+        <u>Javascript</u>, <u>Firebase</u> and <u>Google Cloud Platform</u>,
+        allowing customers to easily pay gas and rental fee on the app.
+      </li>
+    </>
   },
   {
     company: "National University of Singapore",
@@ -137,12 +152,16 @@ export const EXPERIENCES: MpExperience[] = [
     duration: "Aug 2024 - Present",
     wideImg: nusWide,
     badges: [Badge.JAVASCRIPT, Badge.JAVA],
-    desc: [
-      "Taught foundational Java and Javascript programming courses for undergraduate students, " +
-      "heavily focusing on problem-solving methodology and Object-Oriented and Functional Programming paradigm.",
-      "Led weekly tutorial sessions for a group of 8-12 students, reviewing, grading and giving constructive " +
-      "comments to student’s work; received teaching evaluation of 4.6/5.0 and excellent feedback from students."
-    ]
+    desc: <>
+      <li>
+        Taught foundational <u>Java</u> and <u>Javascript</u> programming courses for undergraduate students,
+        heavily focusing on problem-solving methodology and Object-Oriented & Functional programming paradigms.
+      </li>
+      <li>
+        Led weekly tutorial sessions for a group of 8-12 students as well as reviewed, graded and gave constructive
+        comments to student’s work; received teaching evaluation of 4.6/5.0 and excellent feedback from students.
+      </li>
+    </>
   },
 ];
 

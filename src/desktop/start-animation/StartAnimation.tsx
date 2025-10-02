@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion, useAnimate } from "motion/react";
 import StartColumnLast from "./StartColumnLast";
 import StartColumnMiddle from "./StartColumnMiddle";
@@ -48,7 +48,7 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
   });
 
   return (
-    <React.Fragment>
+    <div className="sanim__cont">
       <div className="center-image">
         <motion.img ref={centerImage} className="center-image__image" src={meImage} initial={{ x: 0, y: vh }} />
       </div>
@@ -80,6 +80,6 @@ export default function StartAnimation({ callback }: StartAnimationProps) {
           image3={chikaImage}
         />
       </motion.div>
-    </React.Fragment>
+    </div>
   );
 }

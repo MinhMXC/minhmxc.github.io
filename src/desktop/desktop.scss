@@ -26,6 +26,13 @@ $nav-width: math.div(100% - 70%, 2);
 
 //  NOTE: START ANIMATION (sanim for short)
 
+
+.sanim__cont {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .sanim {
   width: 100%;
   height: 100%;
@@ -143,7 +150,7 @@ $nav-width: math.div(100% - 70%, 2);
 .header {
   @extend .center;
   position: relative;
-  bottom: 4%;
+  bottom: 6%;
   overflow: hidden;
 }
 
@@ -180,9 +187,9 @@ $nav-width: math.div(100% - 70%, 2);
   width: 100%;
   max-width: 1200px;
   color: white;
-  font-size: max(1.1vh, 15px);
+  font-size: max(1.1vh, 14px);
   text-align: justify;
-  padding: 1.5vh;
+  padding: max(1.05vh, 16px);
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.60);
   border-radius: 0.5vh;

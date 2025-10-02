@@ -29,7 +29,7 @@ export interface MpExperience {
   duration: string;
   wideImg: string;
   badges: MpBadge[];
-  desc: string[];
+  desc: ReactNode;
 }
 
 export interface MpProject {

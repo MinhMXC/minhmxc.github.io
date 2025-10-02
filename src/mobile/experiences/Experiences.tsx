@@ -49,7 +49,7 @@ export default function Experiences() {
           {experience.badges.map(badge => <Badge badge={badge} />)}
         </div>
         <ul>
-          {experience.desc.map(desc => <li key={desc}>{desc}</li>)}
+          {experience.desc}
         </ul>
       </div>
     </Content>
