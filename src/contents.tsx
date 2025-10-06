@@ -43,7 +43,7 @@ export const ABOUT: MpAbout = {
   desc: <>
     <h3>Hey, I'm Quang Minh.</h3>
     <p>
-      I'm a <b>efficiency-oriented</b> and <b>result-driven</b> Computer Science undergraduate,
+      I'm an <b>adaptable</b>, <b>efficiency-oriented</b> and <b>result-driven</b> Computer Science student,
       always eager to learn and gain new experiences in the ever-expanding world of technology.
       So far, I have development experience in various areas, including Android <u>mobile</u> application,
       full-stack <u>web</u> applications, and even video game console <u>emulators</u>.
@@ -88,7 +88,7 @@ export const EDUCATION: MpUniversity = {
       title: "Database",
       courses: [
         "CS2012 Database Systems (A+)",
-        "CS3223 Database Systems Implementation"
+        "CS3223 Database Systems Implementation (A)"
       ]
     },
     {
@@ -181,7 +181,7 @@ export const FUN_PROJECTS: MpProject[] = [
           manipulating sounds, became the canvas for a much larger project of recreating the "Bad Apple" music video.
         </p>
         <p>
-          For the <u>audio</u>, I deep - dived into MIDI files and developed a Python script
+          For the <u>audio</u>, I deep-dived into MIDI files and developed a Python script
           to deconstruct the MIDI file format, converting its musical data into Source Academy's audio instructions.
         </p>
         <p>
@@ -201,7 +201,7 @@ export const FUN_PROJECTS: MpProject[] = [
       <>
         <p>
           Combining my love for gaming and fascination for computer architecture, I created a calculator in Minecraft.
-          Using Minecraft's "redstone" as my medium, I constructed complex logic gates from scratch and wired them to
+          Using Minecraft's "redstone" as electricity, I constructed complex logic gates from scratch and wired them to
           create circuits for addition, subtraction, multiplication and division.
         </p>
         <p>
@@ -220,11 +220,14 @@ export const FUN_PROJECTS: MpProject[] = [
       <>
         <p>
           My highschool had a simple contest: to see who can draw the best picture on a TI-84 graphing calculator.
-          My goal, obviously, was to win. But I wanted to win with a program.
+          My goal, obviously, was to win... But I wanted to win with a program.
         </p>
         <p>
           I developed a C# Windows application, <b>ImageToGraph</b>, that converts any image
-          into a series of equations for a graphing calculator.
+          into a series of equations for a graphing calculator. With this, I easily
+          won the competition.
+        </p>
+        <p>
           Thinking bigger, I used the program to converted the
           "Chika Dance" clip from the anime, <i>Love is War </i> into
           a dynamic graphing animation on Desmos.
@@ -250,14 +253,14 @@ export const PROJECTS: MpProject[] = [
         </p>
         <p>
           I learned a ton about computer hardware and the fundamentals of code execution.
-          I had to deep - dive into the original 6502 CPU and its instruction set,
+          I had to deep-dive into the original 6502 CPU and its instruction set,
           figure out how to manage memory buses, and solve the puzzle of synchronising
           the CPU and GPU to get the visuals and audio to work perfectly.
         </p>
         <p>
           Utilising the <b>Catch2</b> library and Test Driven Development,
           I made sure my emulator accurately follow behaviours
-          of the original console.At the end, I got a cycle - accurate emulator,
+          of the original console.At the end, I got a cycle-accurate emulator,
           capable of running <b>100s</b> of retro games at <b>400FPS++</b>.
         </p>
       </>
@@ -272,14 +275,14 @@ export const PROJECTS: MpProject[] = [
       <>
         <p>
           As an avid achievement hunter myself, I was frustrated by the lack of tools
-          to easily track my progress on the go.As such, I developed an Android application
+          to easily track my progress on the go. As such, I developed an Android application
           using <b>Jetpack Compose</b> and <b>Kotlin</b> that helps gamers manage their
           Steam achievements directly from their phone.
         </p>
         <p>
           I built the app to intelligently parse data from the <b>Steam API</b> and various achievement websites,
-          giving users access to over <b>10,000</b> games.
-          To ensure a seamless experience, I designed it with a robust local caching system using <b>SQLite</b>,
+          giving users access to over <b>10,000</b>+ games.
+          To ensure a seamless experience, I designed it with a local caching system using <b>SQLite</b>,
           providing reliable offline access so that users can check their progress anywhere,
           even without a network connection.
         </p>
@@ -296,15 +299,15 @@ export const PROJECTS: MpProject[] = [
         <p>
           Being a frequent social media user, I've always been interested in knowing how such large-scale
           systems are built and developed.
-          This led me to create a full - stack discussion website,
+          This led me to create a full-stack discussion website,
           a complete forum where users can post, comment, and engage with a community.
         </p>
         <p>
-          I chose <b>React</b> and <b>Typescipt</b> for the front end to create a dynamic and
-          responsive user experience, and <b>Ruby on Rails</b> for the back end to handle
+          I chose <b>React</b> and <b>Typescipt</b> for the frontend to create a dynamic and
+          responsive user experience, and <b>Ruby on Rails</b> for the backend to handle
           data management and API interactions.
-          The build process gave me the technical overview of a scalable web application,
-          from implementing secure user authentication using <b>JSON Web Token</b> to containerizing the
+          The experience gave me the technical overview of a scalable web application,
+          from implementing secure user authentication using <b>JSON Web Token</b> to containerising the
           entire application with <b>Docker</b> for seamless deployment.
         </p>
       </>
@@ -320,7 +323,7 @@ export const PROJECTS: MpProject[] = [
       <>
         <p>
           For this project, I decided to take a journey back in time by building a Chip-8 emulator.
-          The Chip-8 was a simple virtual machine from 1977, a foundational piece of technology
+          The Chip-8 was a simple virtual machine from 1977, a foundational technology
           for making early video games.
         </p>
         <p>
@@ -328,7 +331,7 @@ export const PROJECTS: MpProject[] = [
           I had to reconstruct the entire virtual machine from scratch,
           implementing the CPU's instruction set, managing the memory,
           and figuring out how to render graphics on a modern screen.
-          I even went a step further by adding support for SChip instructions to run more advanced games.
+          I even went a step further by adding support for SChip instructions (an extension to the Chip-8) to run more advanced games.
           The process taught me a ton about virtual machines and system architecture.
         </p>
       </>

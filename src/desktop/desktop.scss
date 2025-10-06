@@ -187,7 +187,7 @@ $nav-width: math.div(100% - 70%, 2);
   width: 100%;
   max-width: 1200px;
   color: white;
-  font-size: max(1.1vh, 14px);
+  font-size: max(1.1vh, 15px);
   text-align: justify;
   padding: max(1.05vh, 16px);
   overflow: hidden;
@@ -242,6 +242,7 @@ $nav-width: math.div(100% - 70%, 2);
 .coursework {
   display: grid;
   grid-template-columns: 50% 50%;
+  column-gap: 16px;
 }
 
 .coursework__title {
